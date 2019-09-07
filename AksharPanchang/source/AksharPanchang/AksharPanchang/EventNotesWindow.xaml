@@ -1,0 +1,22 @@
+﻿<Window x:Class="AksharPanchang.EventNotesWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:AksharPanchang"
+        mc:Ignorable="d"
+        Title="EventNotes" Height="450" Width="764.894">
+    <Grid Margin="0,0,68.6,0">
+        <DataGrid Name="EventDataGrid" CanUserAddRows="True" IsEnabled="True" HorizontalAlignment="Left" Height="325" Margin="24,10,-56.2,0" VerticalAlignment="Top" Width="722">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Masa" Binding="{Binding Path=masa}" Width="100"/>
+                <DataGridTextColumn Header="Paksha" Binding="{Binding Path=paksha}" Width="100"/>
+                <DataGridTextColumn Header="Tithi" Binding="{Binding Path=tithi}" Width="150"/>
+                <DataGridTextColumn Header="Vara" Binding="{Binding Path=vara}" Width="120"/>
+                <DataGridTextColumn Header="Notes" Binding="{Binding Path=notes}" />
+            </DataGrid.Columns>
+        </DataGrid>
+        <Button Content="Save" HorizontalAlignment="Left" Margin="355,359,0,0" VerticalAlignment="Top" Width="75" Click="Save_Click" Height="32"/>
+
+    </Grid>
+</Window>
