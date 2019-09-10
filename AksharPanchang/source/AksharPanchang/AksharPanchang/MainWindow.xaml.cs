@@ -1180,1019 +1180,1027 @@ namespace AksharPanchang
         private void updateImportance()
         {
             string message = "";
-            if (model.PanchangTithi.Paksha.Equals(PakshaConst.SHUKLA_PAKSHA)
-                &&(model.PanchangTithi.TithiNumber % 15 == TithiConst.SAPTAMI
-                && model.VaraLabelStr.Equals(VaraConst.RAVIWAAR_STR)) 
+            if (model.MasaLabelStr.Contains("(Adhika)"))
+            {
+                message = "Adhik Masa";
+            }
+            else
+            {
+
+                if (model.PanchangTithi.Paksha.Equals(PakshaConst.SHUKLA_PAKSHA)
+                    && (model.PanchangTithi.TithiNumber % 15 == TithiConst.SAPTAMI
+                    && model.VaraLabelStr.Equals(VaraConst.RAVIWAAR_STR))
+                    ||
+                  (model.TithiAtSunrise.Paksha.Equals(PakshaConst.SHUKLA_PAKSHA)
+                    && (model.TithiAtSunrise.TithiNumber % 15 == TithiConst.SAPTAMI
+                    && model.VaraLabelStr.Equals(VaraConst.RAVIWAAR_STR))
+                    ))
+                {
+                    message += " Vijaya Saptami ";
+                }
+                if ((model.PanchangTithi.Paksha.Equals(PakshaConst.KRISHNA_PAKSHA)
+                   && model.MonthEndOption.Equals("P")
+                   && model.Masa.Name.Equals(MasaConst.CHAITRA_STR)
+                   && model.PanchangTithi.TithiNumber % 15 == TithiConst.CHATURTHI)
+                   ||
+                   (
+                   model.TithiAtSunrise.Paksha.Equals(PakshaConst.KRISHNA_PAKSHA)
+                   && model.MonthEndOption.Equals("P")
+                   && model.MasaAtSunrise.Name.Equals(MasaConst.CHAITRA_STR)
+                   && model.TithiAtSunrise.TithiNumber % 15 == TithiConst.CHATURTHI
+                   ))
+                {
+                    message += " Bhalachandra Sankashti Chaturthi ";
+                }
+                //Paramatma – Lord Of All Beings
+                if ((model.PanchangTithi.Paksha.Equals(PakshaConst.KRISHNA_PAKSHA)
+                    && model.MonthEndOption.Equals("P")
+                    && model.Masa.Name.Equals(MasaConst.CHAITRA_STR)
+                    && model.PanchangTithi.TithiNumber % 15 == TithiConst.PANCHAMI)
+                    ||
+                    (
+                    model.TithiAtSunrise.Paksha.Equals(PakshaConst.KRISHNA_PAKSHA)
+                    && model.MonthEndOption.Equals("P")
+                    && model.MasaAtSunrise.Name.Equals(MasaConst.CHAITRA_STR)
+                    && model.TithiAtSunrise.TithiNumber % 15 == TithiConst.PANCHAMI
+                    ))
+                {
+                    message += " Rang Panchami ";
+                }
+                if ((model.PanchangTithi.Paksha.Equals(PakshaConst.KRISHNA_PAKSHA)
+                    && model.MonthEndOption.Equals("P")
+                    && model.Masa.Name.Equals(MasaConst.CHAITRA_STR)
+                    && model.PanchangTithi.TithiNumber % 15 == TithiConst.SAPTAMI)
+                    ||
+                        (model.TithiAtSunrise.Paksha.Equals(PakshaConst.KRISHNA_PAKSHA)
+                    && model.MonthEndOption.Equals("P")
+                    && model.MasaAtSunrise.Name.Equals(MasaConst.CHAITRA_STR)
+                    && model.TithiAtSunrise.TithiNumber % 15 == TithiConst.SAPTAMI))
+                {
+                    message += " Sheetala Saptami ";
+                }
+                // Parampurush – Supreme Personality,, Parthasarthi – Charioteer Of Partha – Arjuna
+                if ((model.PanchangTithi.Paksha.Equals(PakshaConst.KRISHNA_PAKSHA)
+                    && model.MonthEndOption.Equals("P")
+                    && model.Masa.Name.Equals(MasaConst.CHAITRA_STR)
+                    && model.PanchangTithi.TithiNumber % 15 == TithiConst.EKADASHI)
+                    ||
+                        (model.TithiAtSunrise.Paksha.Equals(PakshaConst.KRISHNA_PAKSHA)
+                    && model.MonthEndOption.Equals("P")
+                    && model.MasaAtSunrise.Name.Equals(MasaConst.CHAITRA_STR)
+                    && model.TithiAtSunrise.TithiNumber % 15 == TithiConst.EKADASHI))
+                {
+                    message += " Paapmochani Ekadashi ";
+                }
+                if ((model.PanchangTithi.Paksha.Equals(PakshaConst.SHUKLA_PAKSHA)
+                  && model.MonthEndOption.Equals("P")
+                  && model.Masa.Name.Equals(MasaConst.CHAITRA_STR)
+                  && model.PanchangTithi.TithiNumber % 15 == TithiConst.PRATHAMA)
+                  ||
+                       (model.TithiAtSunrise.Paksha.Equals(PakshaConst.SHUKLA_PAKSHA)
+                  && model.MonthEndOption.Equals("P")
+                  && model.MasaAtSunrise.Name.Equals(MasaConst.CHAITRA_STR)
+                  && model.TithiAtSunrise.TithiNumber % 15 == TithiConst.PRATHAMA))
+                {
+                    message += " Gudi Padwa ";
+                }
+                if ((model.PanchangTithi.Paksha.Equals(PakshaConst.SHUKLA_PAKSHA)
+                   && model.MonthEndOption.Equals("P")
+                   && model.Masa.Name.Equals(MasaConst.CHAITRA_STR)
+                   && model.PanchangTithi.TithiNumber % 15 >= TithiConst.PRATHAMA
+                   && model.PanchangTithi.TithiNumber % 15 <= TithiConst.NAVMI)
+                   ||
+                        (model.TithiAtSunrise.Paksha.Equals(PakshaConst.SHUKLA_PAKSHA)
+                   && model.MonthEndOption.Equals("P")
+                   && model.MasaAtSunrise.Name.Equals(MasaConst.CHAITRA_STR)
+                   && model.TithiAtSunrise.TithiNumber % 15 >= TithiConst.PRATHAMA
+                   && model.TithiAtSunrise.TithiNumber % 15 <= TithiConst.NAVMI))
+                {
+                    message += " Chaitra Navratri ";
+                }
+                if ((model.PanchangTithi.Paksha.Equals(PakshaConst.SHUKLA_PAKSHA)
+                  && model.MonthEndOption.Equals("P")
+                  && model.Masa.Name.Equals(MasaConst.CHAITRA_STR)
+                  && model.PanchangTithi.TithiNumber % 15 == TithiConst.NAVMI)
+                  ||
+                       (model.TithiAtSunrise.Paksha.Equals(PakshaConst.SHUKLA_PAKSHA)
+                  && model.MonthEndOption.Equals("P")
+                  && model.MasaAtSunrise.Name.Equals(MasaConst.CHAITRA_STR)
+                  && model.TithiAtSunrise.TithiNumber % 15 == TithiConst.NAVMI))
+                {
+                    message += " Ram Navmi ";
+                }
+                if ((model.PanchangTithi.Paksha.Equals(PakshaConst.SHUKLA_PAKSHA)
+                   && model.MonthEndOption.Equals("P")
+                   && model.Masa.Name.Equals(MasaConst.CHAITRA_STR)
+                   && model.PanchangTithi.TithiNumber % 15 == TithiConst.EKADASHI)
+                   ||
+                       (model.TithiAtSunrise.Paksha.Equals(PakshaConst.SHUKLA_PAKSHA)
+                   && model.MonthEndOption.Equals("P")
+                   && model.MasaAtSunrise.Name.Equals(MasaConst.CHAITRA_STR)
+                   && model.TithiAtSunrise.TithiNumber % 15 == TithiConst.EKADASHI))
+                {
+                    message += " Kamada Ekadashi ";
+                }
+                if ((model.PanchangTithi.Paksha.Equals(PakshaConst.SHUKLA_PAKSHA)
+                  && model.MonthEndOption.Equals("P")
+                  && model.Masa.Name.Equals(MasaConst.CHAITRA_STR)
+                  && model.PanchangTithi.TithiNumber == TithiConst.POORNIMA)
+                  ||
+                       (model.TithiAtSunrise.Paksha.Equals(PakshaConst.SHUKLA_PAKSHA)
+                  && model.MonthEndOption.Equals("P")
+                  && model.MasaAtSunrise.Name.Equals(MasaConst.CHAITRA_STR)
+                  && model.TithiAtSunrise.TithiNumber == TithiConst.POORNIMA))
+                {
+                    message += " Hanuman Jayanti ";
+                }
+
+                if ((model.PanchangTithi.Paksha.Equals(PakshaConst.KRISHNA_PAKSHA)
+                  && model.MonthEndOption.Equals("P")
+                  && model.Masa.Name.Equals(MasaConst.VAISHAKH_STR)
+                  && model.PanchangTithi.TithiNumber % 15 == TithiConst.CHATURTHI)
+                  ||
+                      (model.TithiAtSunrise.Paksha.Equals(PakshaConst.KRISHNA_PAKSHA)
+                  && model.MonthEndOption.Equals("P")
+                  && model.MasaAtSunrise.Name.Equals(MasaConst.VAISHAKH_STR)
+                  && model.TithiAtSunrise.TithiNumber % 15 == TithiConst.CHATURTHI))
+                {
+                    message += " Vikata Sankashti Chaturthi ";
+                }
+
+
+                if ((model.PanchangTithi.Paksha.Equals(PakshaConst.KRISHNA_PAKSHA)
+                   && model.MonthEndOption.Equals("P")
+                   && model.Masa.Name.Equals(MasaConst.VAISHAKH_STR)
+                   && model.PanchangTithi.TithiNumber % 15 == TithiConst.EKADASHI)
+                   ||
+                       (model.TithiAtSunrise.Paksha.Equals(PakshaConst.KRISHNA_PAKSHA)
+                   && model.MonthEndOption.Equals("P")
+                   && model.MasaAtSunrise.Name.Equals(MasaConst.VAISHAKH_STR)
+                   && model.TithiAtSunrise.TithiNumber % 15 == TithiConst.EKADASHI))
+                {
+                    message += " Varuthini Ekadashi ";
+                }
+                if ((model.PanchangTithi.Paksha.Equals(PakshaConst.SHUKLA_PAKSHA)
+                  && model.MonthEndOption.Equals("P")
+                  && model.Masa.Name.Equals(MasaConst.VAISHAKH_STR)
+                  && model.PanchangTithi.TithiNumber % 15 == TithiConst.TRITIYA)
+                  ||
+                       (model.TithiAtSunrise.Paksha.Equals(PakshaConst.SHUKLA_PAKSHA)
+                  && model.MonthEndOption.Equals("P")
+                  && model.MasaAtSunrise.Name.Equals(MasaConst.VAISHAKH_STR)
+                  && model.TithiAtSunrise.TithiNumber % 15 == TithiConst.TRITIYA))
+                {
+                    message += " Parashuram Jayanti - Akshaya Tritiya ";
+                }
+                if ((model.PanchangTithi.Paksha.Equals(PakshaConst.SHUKLA_PAKSHA)
+                  && model.MonthEndOption.Equals("P")
+                  && model.Masa.Name.Equals(MasaConst.VAISHAKH_STR)
+                  && model.PanchangTithi.TithiNumber % 15 == TithiConst.SAPTAMI)
+                  ||
+                       (model.TithiAtSunrise.Paksha.Equals(PakshaConst.SHUKLA_PAKSHA)
+                  && model.MonthEndOption.Equals("P")
+                  && model.MasaAtSunrise.Name.Equals(MasaConst.VAISHAKH_STR)
+                  && model.TithiAtSunrise.TithiNumber % 15 == TithiConst.SAPTAMI))
+                {
+                    message += " Ganga Saptami ";
+                }
+                if ((model.PanchangTithi.Paksha.Equals(PakshaConst.SHUKLA_PAKSHA)
+                 && model.MonthEndOption.Equals("P")
+                 && model.Masa.Name.Equals(MasaConst.VAISHAKH_STR)
+                 && model.PanchangTithi.TithiNumber % 15 == TithiConst.NAVMI)
+                 ||
+                      (model.TithiAtSunrise.Paksha.Equals(PakshaConst.SHUKLA_PAKSHA)
+                 && model.MonthEndOption.Equals("P")
+                 && model.MasaAtSunrise.Name.Equals(MasaConst.VAISHAKH_STR)
+                 && model.TithiAtSunrise.TithiNumber % 15 == TithiConst.NAVMI))
+                {
+                    message += " Seeta Navmi ";
+                }
+                if ((model.PanchangTithi.Paksha.Equals(PakshaConst.SHUKLA_PAKSHA)
+                && model.MonthEndOption.Equals("P")
+                && model.Masa.Name.Equals(MasaConst.VAISHAKH_STR)
+                && model.PanchangTithi.TithiNumber % 15 == TithiConst.EKADASHI)
                 ||
-              (model.TithiAtSunrise.Paksha.Equals(PakshaConst.SHUKLA_PAKSHA)
-                && (model.TithiAtSunrise.TithiNumber % 15 == TithiConst.SAPTAMI
-                && model.VaraLabelStr.Equals(VaraConst.RAVIWAAR_STR))
-                ))
-            {
-                message += " Vijaya Saptami ";
-            }
-            if ((model.PanchangTithi.Paksha.Equals(PakshaConst.KRISHNA_PAKSHA)
-               && model.MonthEndOption.Equals("P")
-               && model.Masa.Name.Equals(MasaConst.CHAITRA_STR)
-               && model.PanchangTithi.TithiNumber % 15 == TithiConst.CHATURTHI)
-               ||
-               (
-               model.TithiAtSunrise.Paksha.Equals(PakshaConst.KRISHNA_PAKSHA)
-               && model.MonthEndOption.Equals("P")
-               && model.MasaAtSunrise.Name.Equals(MasaConst.CHAITRA_STR)
-               && model.TithiAtSunrise.TithiNumber % 15 == TithiConst.CHATURTHI
-               ))
-            {
-                message += " Bhalachandra Sankashti Chaturthi ";
-            }
-			//Paramatma – Lord Of All Beings
-            if ((model.PanchangTithi.Paksha.Equals(PakshaConst.KRISHNA_PAKSHA)
-                &&  model.MonthEndOption.Equals("P") 
-                && model.Masa.Name.Equals(MasaConst.CHAITRA_STR)
+                     (model.TithiAtSunrise.Paksha.Equals(PakshaConst.SHUKLA_PAKSHA)
+                && model.MonthEndOption.Equals("P")
+                && model.MasaAtSunrise.Name.Equals(MasaConst.VAISHAKH_STR)
+                && model.TithiAtSunrise.TithiNumber % 15 == TithiConst.EKADASHI))
+                {
+                    message += " Mohini Ekadashi ";
+                }
+                if ((model.PanchangTithi.Paksha.Equals(PakshaConst.SHUKLA_PAKSHA)
+                && model.MonthEndOption.Equals("P")
+                && model.Masa.Name.Equals(MasaConst.VAISHAKH_STR)
+                && model.PanchangTithi.TithiNumber % 15 == TithiConst.CHATURDASHI)
+                ||
+                     (model.TithiAtSunrise.Paksha.Equals(PakshaConst.SHUKLA_PAKSHA)
+                && model.MonthEndOption.Equals("P")
+                && model.MasaAtSunrise.Name.Equals(MasaConst.VAISHAKH_STR)
+                && model.TithiAtSunrise.TithiNumber % 15 == TithiConst.CHATURDASHI))
+                {
+                    message += " Narasimha Jayanti ";
+                }
+                if ((model.PanchangTithi.Paksha.Equals(PakshaConst.SHUKLA_PAKSHA)
+                  && model.MonthEndOption.Equals("P")
+                  && model.Masa.Name.Equals(MasaConst.VAISHAKH_STR)
+                  && model.PanchangTithi.TithiNumber == TithiConst.POORNIMA)
+                  ||
+                       (model.TithiAtSunrise.Paksha.Equals(PakshaConst.SHUKLA_PAKSHA)
+                  && model.MonthEndOption.Equals("P")
+                  && model.MasaAtSunrise.Name.Equals(MasaConst.VAISHAKH_STR)
+                  && model.TithiAtSunrise.TithiNumber == TithiConst.POORNIMA))
+                {
+                    message += " Buddha Poornima ";
+                }
+                if ((model.PanchangTithi.Paksha.Equals(PakshaConst.KRISHNA_PAKSHA)
+                 && model.MonthEndOption.Equals("P")
+                 && model.Masa.Name.Equals(MasaConst.JYESHTHA_STR)
+                 && model.PanchangTithi.TithiNumber % 15 == TithiConst.PRATHAMA)
+                 ||
+                      (model.TithiAtSunrise.Paksha.Equals(PakshaConst.KRISHNA_PAKSHA)
+                 && model.MonthEndOption.Equals("P")
+                 && model.MasaAtSunrise.Name.Equals(MasaConst.JYESHTHA_STR)
+                 && model.TithiAtSunrise.TithiNumber % 15 == TithiConst.PRATHAMA))
+                {
+                    message += " Naarad Jayanti ";
+                }
+
+                if ((model.PanchangTithi.Paksha.Equals(PakshaConst.KRISHNA_PAKSHA)
+                 && model.MonthEndOption.Equals("P")
+                 && model.Masa.Name.Equals(MasaConst.JYESHTHA_STR)
+                 && model.PanchangTithi.TithiNumber % 15 == TithiConst.CHATURTHI)
+                 ||
+                      (model.TithiAtSunrise.Paksha.Equals(PakshaConst.KRISHNA_PAKSHA)
+                 && model.MonthEndOption.Equals("P")
+                 && model.MasaAtSunrise.Name.Equals(MasaConst.JYESHTHA_STR)
+                 && model.TithiAtSunrise.TithiNumber % 15 == TithiConst.CHATURTHI))
+                {
+                    message += " Ekdanta Sankashti Chaturhi ";
+                }
+
+                if ((model.PanchangTithi.Paksha.Equals(PakshaConst.KRISHNA_PAKSHA)
+                  && model.MonthEndOption.Equals("P")
+                  && model.Masa.Name.Equals(MasaConst.JYESHTHA_STR)
+                  && model.PanchangTithi.TithiNumber % 15 == TithiConst.EKADASHI)
+                  ||
+                       (model.TithiAtSunrise.Paksha.Equals(PakshaConst.KRISHNA_PAKSHA)
+                  && model.MonthEndOption.Equals("P")
+                  && model.MasaAtSunrise.Name.Equals(MasaConst.JYESHTHA_STR)
+                  && model.TithiAtSunrise.TithiNumber % 15 == TithiConst.EKADASHI))
+                {
+                    message += " Apara Ekadashi ";
+                }
+                if ((model.PanchangTithi.Paksha.Equals(PakshaConst.KRISHNA_PAKSHA)
+                  && model.MonthEndOption.Equals("P")
+                  && model.Masa.Name.Equals(MasaConst.JYESHTHA_STR)
+                  && model.PanchangTithi.TithiNumber == TithiConst.AMAVASYA)
+                  ||
+                       (model.TithiAtSunrise.Paksha.Equals(PakshaConst.KRISHNA_PAKSHA)
+                  && model.MonthEndOption.Equals("P")
+                  && model.MasaAtSunrise.Name.Equals(MasaConst.JYESHTHA_STR)
+                  && model.TithiAtSunrise.TithiNumber == TithiConst.AMAVASYA))
+                {
+                    message += " Shani Jayanti ";
+                }
+                if ((model.PanchangTithi.Paksha.Equals(PakshaConst.SHUKLA_PAKSHA)
+                  && model.MonthEndOption.Equals("P")
+                  && model.Masa.Name.Equals(MasaConst.JYESHTHA_STR)
+                  && model.PanchangTithi.TithiNumber % 15 == TithiConst.DASHMI)
+                  ||
+                       (model.TithiAtSunrise.Paksha.Equals(PakshaConst.SHUKLA_PAKSHA)
+                  && model.MonthEndOption.Equals("P")
+                  && model.MasaAtSunrise.Name.Equals(MasaConst.JYESHTHA_STR)
+                  && model.TithiAtSunrise.TithiNumber % 15 == TithiConst.DASHMI))
+                {
+                    message += " Ganga Dashahera ";
+                }
+                if ((model.PanchangTithi.Paksha.Equals(PakshaConst.SHUKLA_PAKSHA)
+                  && model.MonthEndOption.Equals("P")
+                  && model.Masa.Name.Equals(MasaConst.JYESHTHA_STR)
+                  && model.PanchangTithi.TithiNumber % 15 == TithiConst.EKADASHI)
+                  ||
+                       (model.TithiAtSunrise.Paksha.Equals(PakshaConst.SHUKLA_PAKSHA)
+                  && model.MonthEndOption.Equals("P")
+                  && model.MasaAtSunrise.Name.Equals(MasaConst.JYESHTHA_STR)
+                  && model.TithiAtSunrise.TithiNumber % 15 == TithiConst.EKADASHI))
+                {
+                    message += " Nirjala Ekadashi ";
+                }
+                if ((model.PanchangTithi.Paksha.Equals(PakshaConst.SHUKLA_PAKSHA)
+                 && model.MonthEndOption.Equals("P")
+                 && model.Masa.Name.Equals(MasaConst.JYESHTHA_STR)
+                 && model.PanchangTithi.TithiNumber == TithiConst.POORNIMA)
+                 ||
+                      (model.TithiAtSunrise.Paksha.Equals(PakshaConst.SHUKLA_PAKSHA)
+                 && model.MonthEndOption.Equals("P")
+                 && model.MasaAtSunrise.Name.Equals(MasaConst.JYESHTHA_STR)
+                 && model.TithiAtSunrise.TithiNumber == TithiConst.POORNIMA))
+                {
+                    message += " Vat Savitri Poornima ";
+                }
+                if ((model.PanchangTithi.Paksha.Equals(PakshaConst.KRISHNA_PAKSHA)
+                 && model.MonthEndOption.Equals("P")
+                 && model.Masa.Name.Equals(MasaConst.ASHAADH_STR)
+                 && model.PanchangTithi.TithiNumber % 15 == TithiConst.CHATURTHI)
+                 ||
+                      (model.TithiAtSunrise.Paksha.Equals(PakshaConst.KRISHNA_PAKSHA)
+                 && model.MonthEndOption.Equals("P")
+                 && model.MasaAtSunrise.Name.Equals(MasaConst.ASHAADH_STR)
+                 && model.TithiAtSunrise.TithiNumber % 15 == TithiConst.CHATURTHI))
+                {
+                    message += " KrishnaPingala Sankashti Chaturthi ";
+                }
+
+                if ((model.PanchangTithi.Paksha.Equals(PakshaConst.KRISHNA_PAKSHA)
+                  && model.MonthEndOption.Equals("P")
+                  && model.Masa.Name.Equals(MasaConst.ASHAADH_STR)
+                  && model.PanchangTithi.TithiNumber % 15 == TithiConst.EKADASHI)
+                  ||
+                       (model.TithiAtSunrise.Paksha.Equals(PakshaConst.KRISHNA_PAKSHA)
+                  && model.MonthEndOption.Equals("P")
+                  && model.MasaAtSunrise.Name.Equals(MasaConst.ASHAADH_STR)
+                  && model.TithiAtSunrise.TithiNumber % 15 == TithiConst.EKADASHI))
+                {
+                    message += " Yogini Ekadashi ";
+                }
+                if ((model.PanchangTithi.Paksha.Equals(PakshaConst.SHUKLA_PAKSHA)
+                 && model.MonthEndOption.Equals("P")
+                 && model.Masa.Name.Equals(MasaConst.ASHAADH_STR)
+                 && model.PanchangTithi.TithiNumber % 15 == TithiConst.DWITIYA)
+                 ||
+                      (model.TithiAtSunrise.Paksha.Equals(PakshaConst.SHUKLA_PAKSHA)
+                 && model.MonthEndOption.Equals("P")
+                 && model.MasaAtSunrise.Name.Equals(MasaConst.ASHAADH_STR)
+                 && model.TithiAtSunrise.TithiNumber % 15 == TithiConst.DWITIYA))
+                {
+                    message += " Jagannath Rath Yatra ";
+                }
+                if ((model.PanchangTithi.Paksha.Equals(PakshaConst.SHUKLA_PAKSHA)
+                 && model.MonthEndOption.Equals("P")
+                 && model.Masa.Name.Equals(MasaConst.ASHAADH_STR)
+                 && model.PanchangTithi.TithiNumber % 15 == TithiConst.EKADASHI)
+                 ||
+                      (model.TithiAtSunrise.Paksha.Equals(PakshaConst.SHUKLA_PAKSHA)
+                 && model.MonthEndOption.Equals("P")
+                 && model.MasaAtSunrise.Name.Equals(MasaConst.ASHAADH_STR)
+                 && model.TithiAtSunrise.TithiNumber % 15 == TithiConst.EKADASHI))
+                {
+                    message += " Devshayani Ekadashi ";
+                }
+                if ((model.PanchangTithi.Paksha.Equals(PakshaConst.SHUKLA_PAKSHA)
+                 && model.MonthEndOption.Equals("P")
+                 && model.Masa.Name.Equals(MasaConst.ASHAADH_STR)
+                 && model.PanchangTithi.TithiNumber == TithiConst.POORNIMA)
+                 ||
+                      (model.TithiAtSunrise.Paksha.Equals(PakshaConst.SHUKLA_PAKSHA)
+                 && model.MonthEndOption.Equals("P")
+                 && model.MasaAtSunrise.Name.Equals(MasaConst.ASHAADH_STR)
+                 && model.TithiAtSunrise.TithiNumber == TithiConst.POORNIMA))
+                {
+                    message += " Guru Poornima ";
+                }
+                if ((model.PanchangTithi.Paksha.Equals(PakshaConst.KRISHNA_PAKSHA)
+                 && model.MonthEndOption.Equals("P")
+                 && model.Masa.Name.Equals(MasaConst.SHRAVAN_STR)
+                 && model.PanchangTithi.TithiNumber % 15 == TithiConst.CHATURTHI)
+                 ||
+                      (model.TithiAtSunrise.Paksha.Equals(PakshaConst.KRISHNA_PAKSHA)
+                 && model.MonthEndOption.Equals("P")
+                 && model.MasaAtSunrise.Name.Equals(MasaConst.SHRAVAN_STR)
+                 && model.TithiAtSunrise.TithiNumber % 15 == TithiConst.CHATURTHI))
+                {
+                    message += " Gajaanan Sankashti Chaturthi ";
+                }
+
+                if ((model.PanchangTithi.Paksha.Equals(PakshaConst.KRISHNA_PAKSHA)
+                 && model.MonthEndOption.Equals("P")
+                 && model.Masa.Name.Equals(MasaConst.SHRAVAN_STR)
+                 && model.PanchangTithi.TithiNumber % 15 == TithiConst.EKADASHI)
+                 ||
+                      (model.TithiAtSunrise.Paksha.Equals(PakshaConst.KRISHNA_PAKSHA)
+                 && model.MonthEndOption.Equals("P")
+                 && model.MasaAtSunrise.Name.Equals(MasaConst.SHRAVAN_STR)
+                 && model.TithiAtSunrise.TithiNumber % 15 == TithiConst.EKADASHI))
+                {
+                    message += " Kamika Ekadashi ";
+                }
+                if (model.MonthEndOption.Equals("P")
+                && model.Masa.Name.Equals(MasaConst.SHRAVAN_STR)
+                && model.VaraLabelStr.Equals(VaraConst.SOMWAAR_STR)
+                ||
+                     (model.MonthEndOption.Equals("P")
+                && model.MasaAtSunrise.Name.Equals(MasaConst.SHRAVAN_STR)
+                && model.VaraLabelStr.Equals(VaraConst.SOMWAAR_STR)))
+                {
+                    message += " Shraavan Somwar ";
+                }
+                if ((model.PanchangTithi.Paksha.Equals(PakshaConst.SHUKLA_PAKSHA)
+                 && model.MonthEndOption.Equals("P")
+                 && model.Masa.Name.Equals(MasaConst.SHRAVAN_STR)
+                 && model.PanchangTithi.TithiNumber % 15 == TithiConst.EKADASHI)
+                 ||
+                      (model.TithiAtSunrise.Paksha.Equals(PakshaConst.SHUKLA_PAKSHA)
+                 && model.MonthEndOption.Equals("P")
+                 && model.MasaAtSunrise.Name.Equals(MasaConst.SHRAVAN_STR)
+                 && model.TithiAtSunrise.TithiNumber % 15 == TithiConst.EKADASHI))
+                {
+                    message += " Putrada Ekadashi ";
+                }
+                if ((model.PanchangTithi.Paksha.Equals(PakshaConst.SHUKLA_PAKSHA)
+                 && model.MonthEndOption.Equals("P")
+                 && model.Masa.Name.Equals(MasaConst.SHRAVAN_STR)
+                 && model.PanchangTithi.TithiNumber % 15 == TithiConst.EKADASHI)
+                 ||
+                      (model.TithiAtSunrise.Paksha.Equals(PakshaConst.SHUKLA_PAKSHA)
+                 && model.MonthEndOption.Equals("P")
+                 && model.MasaAtSunrise.Name.Equals(MasaConst.SHRAVAN_STR)
+                 && model.TithiAtSunrise.TithiNumber % 15 == TithiConst.EKADASHI))
+                {
+                    message += " Putrada Ekadashi ";
+                }
+                if ((model.PanchangTithi.Paksha.Equals(PakshaConst.SHUKLA_PAKSHA)
+                 && model.MonthEndOption.Equals("P")
+                 && model.Masa.Name.Equals(MasaConst.SHRAVAN_STR)
+                 && model.PanchangTithi.TithiNumber == TithiConst.POORNIMA)
+                 ||
+                      (model.TithiAtSunrise.Paksha.Equals(PakshaConst.SHUKLA_PAKSHA)
+                 && model.MonthEndOption.Equals("P")
+                 && model.MasaAtSunrise.Name.Equals(MasaConst.SHRAVAN_STR)
+                 && model.TithiAtSunrise.TithiNumber == TithiConst.POORNIMA))
+                {
+                    message += " Nariyali Poornima ";
+                }
+                if ((model.PanchangTithi.Paksha.Equals(PakshaConst.KRISHNA_PAKSHA)
+                && model.MonthEndOption.Equals("P")
+                && model.Masa.Name.Equals(MasaConst.BADHRPAD_STR)
+                && model.PanchangTithi.TithiNumber % 15 == TithiConst.CHATURTHI)
+                ||
+                     (model.TithiAtSunrise.Paksha.Equals(PakshaConst.KRISHNA_PAKSHA)
+                && model.MonthEndOption.Equals("P")
+                && model.MasaAtSunrise.Name.Equals(MasaConst.BADHRPAD_STR)
+                && model.TithiAtSunrise.TithiNumber % 15 == TithiConst.CHATURTHI))
+                {
+                    message += " Heramba Sankashti Chaturthi ";
+                }
+
+                if ((model.PanchangTithi.Paksha.Equals(PakshaConst.KRISHNA_PAKSHA)
+                && model.MonthEndOption.Equals("P")
+                && model.Masa.Name.Equals(MasaConst.BADHRPAD_STR)
+                && model.PanchangTithi.TithiNumber % 15 == TithiConst.EKADASHI)
+                ||
+                     (model.TithiAtSunrise.Paksha.Equals(PakshaConst.KRISHNA_PAKSHA)
+                && model.MonthEndOption.Equals("P")
+                && model.MasaAtSunrise.Name.Equals(MasaConst.BADHRPAD_STR)
+                && model.TithiAtSunrise.TithiNumber % 15 == TithiConst.EKADASHI))
+                {
+                    message += " Ajaa Ekadashi ";
+                }
+                if ((model.PanchangTithi.Paksha.Equals(PakshaConst.SHUKLA_PAKSHA)
+                && model.MonthEndOption.Equals("P")
+                && model.Masa.Name.Equals(MasaConst.BADHRPAD_STR)
+                && model.PanchangTithi.TithiNumber % 15 == TithiConst.TRITIYA)
+                ||
+                     (model.TithiAtSunrise.Paksha.Equals(PakshaConst.SHUKLA_PAKSHA)
+                && model.MonthEndOption.Equals("P")
+                && model.MasaAtSunrise.Name.Equals(MasaConst.BADHRPAD_STR)
+                && model.TithiAtSunrise.TithiNumber % 15 == TithiConst.TRITIYA))
+                {
+                    message += " Hartaalika Teej ";
+                }
+                if ((model.PanchangTithi.Paksha.Equals(PakshaConst.SHUKLA_PAKSHA)
+                && model.MonthEndOption.Equals("P")
+                && model.Masa.Name.Equals(MasaConst.BADHRPAD_STR)
+                && model.PanchangTithi.TithiNumber % 15 == TithiConst.CHATURTHI)
+                ||
+                     (model.TithiAtSunrise.Paksha.Equals(PakshaConst.SHUKLA_PAKSHA)
+                && model.MonthEndOption.Equals("P")
+                && model.MasaAtSunrise.Name.Equals(MasaConst.BADHRPAD_STR)
+                && model.TithiAtSunrise.TithiNumber % 15 == TithiConst.CHATURTHI))
+                {
+                    message += " Ganesh Chaturthi ";
+                }
+                if ((model.PanchangTithi.Paksha.Equals(PakshaConst.SHUKLA_PAKSHA)
+                && model.MonthEndOption.Equals("P")
+                && model.Masa.Name.Equals(MasaConst.BADHRPAD_STR)
                 && model.PanchangTithi.TithiNumber % 15 == TithiConst.PANCHAMI)
                 ||
-                (
-                model.TithiAtSunrise.Paksha.Equals(PakshaConst.KRISHNA_PAKSHA)
+                     (model.TithiAtSunrise.Paksha.Equals(PakshaConst.SHUKLA_PAKSHA)
                 && model.MonthEndOption.Equals("P")
-                && model.MasaAtSunrise.Name.Equals(MasaConst.CHAITRA_STR)
-                && model.TithiAtSunrise.TithiNumber % 15 == TithiConst.PANCHAMI
-                ))
-            {
-                message += " Rang Panchami ";
-            }
-            if ((model.PanchangTithi.Paksha.Equals(PakshaConst.KRISHNA_PAKSHA)
-                && model.MonthEndOption.Equals("P") 
-                && model.Masa.Name.Equals(MasaConst.CHAITRA_STR)
-                && model.PanchangTithi.TithiNumber % 15 == TithiConst.SAPTAMI)
+                && model.MasaAtSunrise.Name.Equals(MasaConst.BADHRPAD_STR)
+                && model.TithiAtSunrise.TithiNumber % 15 == TithiConst.PANCHAMI))
+                {
+                    message += " Rishi Panchami ";
+                }
+                if ((model.PanchangTithi.Paksha.Equals(PakshaConst.SHUKLA_PAKSHA)
+                && model.MonthEndOption.Equals("P")
+                && model.Masa.Name.Equals(MasaConst.BADHRPAD_STR)
+                && model.PanchangTithi.TithiNumber % 15 == TithiConst.ASHTAMI)
+                ||
+                     (model.TithiAtSunrise.Paksha.Equals(PakshaConst.SHUKLA_PAKSHA)
+                && model.MonthEndOption.Equals("P")
+                && model.MasaAtSunrise.Name.Equals(MasaConst.BADHRPAD_STR)
+                && model.TithiAtSunrise.TithiNumber % 15 == TithiConst.ASHTAMI))
+                {
+                    message += " Radha Ashtami ";
+                }
+                if ((model.PanchangTithi.Paksha.Equals(PakshaConst.SHUKLA_PAKSHA)
+                && model.MonthEndOption.Equals("P")
+                && model.Masa.Name.Equals(MasaConst.BADHRPAD_STR)
+                && model.PanchangTithi.TithiNumber % 15 == TithiConst.EKADASHI)
+                ||
+                     (model.TithiAtSunrise.Paksha.Equals(PakshaConst.SHUKLA_PAKSHA)
+                && model.MonthEndOption.Equals("P")
+                && model.MasaAtSunrise.Name.Equals(MasaConst.BADHRPAD_STR)
+                && model.TithiAtSunrise.TithiNumber % 15 == TithiConst.EKADASHI))
+                {
+                    message += " Parivartini Ekadashi ";
+                }
+                if ((model.PanchangTithi.Paksha.Equals(PakshaConst.SHUKLA_PAKSHA)
+               && model.MonthEndOption.Equals("P")
+               && model.Masa.Name.Equals(MasaConst.BADHRPAD_STR)
+               && model.PanchangTithi.TithiNumber % 15 == TithiConst.CHATURDASHI)
+               ||
+                    (model.TithiAtSunrise.Paksha.Equals(PakshaConst.SHUKLA_PAKSHA)
+               && model.MonthEndOption.Equals("P")
+               && model.MasaAtSunrise.Name.Equals(MasaConst.BADHRPAD_STR)
+               && model.TithiAtSunrise.TithiNumber % 15 == TithiConst.CHATURDASHI))
+                {
+                    message += " Anant Chaturdashi ";
+                }
+
+                if ((model.PanchangTithi.Paksha.Equals(PakshaConst.KRISHNA_PAKSHA)
+              && model.MonthEndOption.Equals("P")
+              && model.Masa.Name.Equals(MasaConst.KUNWAAR_STR))
+              ||
+                   (model.TithiAtSunrise.Paksha.Equals(PakshaConst.KRISHNA_PAKSHA)
+              && model.MonthEndOption.Equals("P")
+              && model.MasaAtSunrise.Name.Equals(MasaConst.KUNWAAR_STR)))
+                {
+                    message += " Pitru Paksha ";
+                }
+
+                if ((model.PanchangTithi.Paksha.Equals(PakshaConst.KRISHNA_PAKSHA)
+               && model.MonthEndOption.Equals("P")
+               && model.Masa.Name.Equals(MasaConst.KUNWAAR_STR)
+               && model.PanchangTithi.TithiNumber % 15 == TithiConst.CHATURTHI)
+               ||
+                    (model.TithiAtSunrise.Paksha.Equals(PakshaConst.KRISHNA_PAKSHA)
+               && model.MonthEndOption.Equals("P")
+               && model.MasaAtSunrise.Name.Equals(MasaConst.KUNWAAR_STR)
+               && model.TithiAtSunrise.TithiNumber % 15 == TithiConst.CHATURTHI))
+                {
+                    message += " Vighnaharta Sankashti Chaturthi ";
+                }
+
+
+                if ((model.PanchangTithi.Paksha.Equals(PakshaConst.KRISHNA_PAKSHA)
+                && model.MonthEndOption.Equals("P")
+                && model.Masa.Name.Equals(MasaConst.KUNWAAR_STR)
+                && model.PanchangTithi.TithiNumber % 15 == TithiConst.EKADASHI)
+                ||
+                     (model.TithiAtSunrise.Paksha.Equals(PakshaConst.KRISHNA_PAKSHA)
+                && model.MonthEndOption.Equals("P")
+                && model.MasaAtSunrise.Name.Equals(MasaConst.KUNWAAR_STR)
+                && model.TithiAtSunrise.TithiNumber % 15 == TithiConst.EKADASHI))
+                {
+                    message += " Indira Ekadashi ";
+                }
+                if ((model.PanchangTithi.Paksha.Equals(PakshaConst.KRISHNA_PAKSHA)
+               && model.MonthEndOption.Equals("P")
+               && model.Masa.Name.Equals(MasaConst.KUNWAAR_STR)
+               && model.PanchangTithi.TithiNumber == TithiConst.AMAVASYA)
+               ||
+                    (model.TithiAtSunrise.Paksha.Equals(PakshaConst.KRISHNA_PAKSHA)
+               && model.MonthEndOption.Equals("P")
+               && model.MasaAtSunrise.Name.Equals(MasaConst.KUNWAAR_STR)
+               && model.TithiAtSunrise.TithiNumber == TithiConst.AMAVASYA))
+                {
+                    message += " Sarva Pitru Amavasya ";
+                }
+
+                if ((model.PanchangTithi.Paksha.Equals(PakshaConst.SHUKLA_PAKSHA)
+             && model.MonthEndOption.Equals("P")
+             && model.Masa.Name.Equals(MasaConst.KUNWAAR_STR)
+             && model.PanchangTithi.TithiNumber % 15 >= TithiConst.PRATHAMA
+             && model.PanchangTithi.TithiNumber % 15 <= TithiConst.NAVMI)
+             ||
+                  (model.TithiAtSunrise.Paksha.Equals(PakshaConst.SHUKLA_PAKSHA)
+             && model.MonthEndOption.Equals("P")
+             && model.MasaAtSunrise.Name.Equals(MasaConst.KUNWAAR_STR)
+             && model.TithiAtSunrise.TithiNumber % 15 >= TithiConst.PRATHAMA
+             && model.TithiAtSunrise.TithiNumber % 15 <= TithiConst.NAVMI))
+                {
+                    message += " Navratri ";
+                }
+                if ((model.PanchangTithi.Paksha.Equals(PakshaConst.SHUKLA_PAKSHA)
+                && model.MonthEndOption.Equals("P")
+                && model.Masa.Name.Equals(MasaConst.KUNWAAR_STR)
+                && model.PanchangTithi.TithiNumber % 15 == TithiConst.DASHMI)
+                ||
+                    (model.TithiAtSunrise.Paksha.Equals(PakshaConst.SHUKLA_PAKSHA)
+                && model.MonthEndOption.Equals("P")
+                && model.MasaAtSunrise.Name.Equals(MasaConst.KUNWAAR_STR)
+                && model.TithiAtSunrise.TithiNumber % 15 == TithiConst.DASHMI))
+                {
+                    message += " Dashahera ";
+                }
+                if ((model.PanchangTithi.Paksha.Equals(PakshaConst.SHUKLA_PAKSHA)
+               && model.MonthEndOption.Equals("P")
+               && model.Masa.Name.Equals(MasaConst.KUNWAAR_STR)
+               && model.PanchangTithi.TithiNumber % 15 == TithiConst.EKADASHI)
+               ||
+                   (model.TithiAtSunrise.Paksha.Equals(PakshaConst.SHUKLA_PAKSHA)
+               && model.MonthEndOption.Equals("P")
+               && model.MasaAtSunrise.Name.Equals(MasaConst.KUNWAAR_STR)
+               && model.TithiAtSunrise.TithiNumber % 15 == TithiConst.EKADASHI))
+                {
+                    message += " Papankusha Ekadashi ";
+                }
+
+                if ((model.PanchangTithi.Paksha.Equals(PakshaConst.SHUKLA_PAKSHA)
+                  && model.MonthEndOption.Equals("P")
+                  && model.Masa.Name.Equals(MasaConst.KUNWAAR_STR)
+                  && model.PanchangTithi.TithiNumber == TithiConst.POORNIMA)
+                  ||
+                      (model.TithiAtSunrise.Paksha.Equals(PakshaConst.SHUKLA_PAKSHA)
+                  && model.MonthEndOption.Equals("P")
+                  && model.MasaAtSunrise.Name.Equals(MasaConst.KUNWAAR_STR)
+                  && model.TithiAtSunrise.TithiNumber == TithiConst.POORNIMA))
+                {
+                    message += " Sharad Poornima ";
+                }
+
+                if ((model.PanchangTithi.Paksha.Equals(PakshaConst.KRISHNA_PAKSHA)
+                 && model.MonthEndOption.Equals("P")
+                 && model.Masa.Name.Equals(MasaConst.KARTIK_STR)
+                 && model.PanchangTithi.TithiNumber % 15 == TithiConst.CHATURTHI)
+                 ||
+                     (model.TithiAtSunrise.Paksha.Equals(PakshaConst.KRISHNA_PAKSHA)
+                 && model.MonthEndOption.Equals("P")
+                 && model.MasaAtSunrise.Name.Equals(MasaConst.KARTIK_STR)
+                 && model.TithiAtSunrise.TithiNumber % 15 == TithiConst.CHATURTHI))
+                {
+                    message += " Karwa Chauth / Vakratunda Sankashti Chaturthi ";
+                }
+
+                if ((model.PanchangTithi.Paksha.Equals(PakshaConst.KRISHNA_PAKSHA)
+                 && model.MonthEndOption.Equals("P")
+                 && model.Masa.Name.Equals(MasaConst.KARTIK_STR)
+                 && model.PanchangTithi.TithiNumber % 15 == TithiConst.EKADASHI)
+                 ||
+                     (model.TithiAtSunrise.Paksha.Equals(PakshaConst.KRISHNA_PAKSHA)
+                 && model.MonthEndOption.Equals("P")
+                 && model.MasaAtSunrise.Name.Equals(MasaConst.KARTIK_STR)
+                 && model.TithiAtSunrise.TithiNumber % 15 == TithiConst.EKADASHI))
+                {
+                    message += " Ramaa Ekadashi ";
+                }
+
+                if ((model.PanchangTithi.Paksha.Equals(PakshaConst.KRISHNA_PAKSHA)
+                 && model.MonthEndOption.Equals("P")
+                 && model.Masa.Name.Equals(MasaConst.KARTIK_STR)
+                 && model.PanchangTithi.TithiNumber % 15 == TithiConst.TRAYODASI)
+                 ||
+                     (model.TithiAtSunrise.Paksha.Equals(PakshaConst.KRISHNA_PAKSHA)
+                 && model.MonthEndOption.Equals("P")
+                 && model.MasaAtSunrise.Name.Equals(MasaConst.KARTIK_STR)
+                 && model.TithiAtSunrise.TithiNumber % 15 == TithiConst.TRAYODASI))
+                {
+                    message += " Dhan Teras ";
+                }
+                if ((model.PanchangTithi.Paksha.Equals(PakshaConst.KRISHNA_PAKSHA)
+                && model.MonthEndOption.Equals("P")
+                && model.Masa.Name.Equals(MasaConst.KARTIK_STR)
+                && model.PanchangTithi.TithiNumber == TithiConst.AMAVASYA)
                 ||
                     (model.TithiAtSunrise.Paksha.Equals(PakshaConst.KRISHNA_PAKSHA)
                 && model.MonthEndOption.Equals("P")
-                && model.MasaAtSunrise.Name.Equals(MasaConst.CHAITRA_STR)
-                && model.TithiAtSunrise.TithiNumber % 15 == TithiConst.SAPTAMI))
-            {
-                message += " Sheetala Saptami ";
-            }
-			// Parampurush – Supreme Personality,, Parthasarthi – Charioteer Of Partha – Arjuna
-            if ((model.PanchangTithi.Paksha.Equals(PakshaConst.KRISHNA_PAKSHA)
+                && model.MasaAtSunrise.Name.Equals(MasaConst.KARTIK_STR)
+                && model.TithiAtSunrise.TithiNumber == TithiConst.AMAVASYA))
+                {
+                    message += " Deepavali ";
+                }
+                if ((model.PanchangTithi.Paksha.Equals(PakshaConst.SHUKLA_PAKSHA)
                 && model.MonthEndOption.Equals("P")
-                && model.Masa.Name.Equals(MasaConst.CHAITRA_STR)
+                && model.Masa.Name.Equals(MasaConst.KARTIK_STR)
+                && model.PanchangTithi.TithiNumber % 15 == TithiConst.PRATHAMA)
+                ||
+                    (model.TithiAtSunrise.Paksha.Equals(PakshaConst.SHUKLA_PAKSHA)
+                && model.MonthEndOption.Equals("P")
+                && model.MasaAtSunrise.Name.Equals(MasaConst.KARTIK_STR)
+                && model.TithiAtSunrise.TithiNumber % 15 == TithiConst.PRATHAMA))
+                {
+                    message += " Govardhan Pooja ";
+                }
+                if ((model.PanchangTithi.Paksha.Equals(PakshaConst.SHUKLA_PAKSHA)
+               && model.MonthEndOption.Equals("P")
+               && model.Masa.Name.Equals(MasaConst.KARTIK_STR)
+               && model.PanchangTithi.TithiNumber % 15 == TithiConst.DWITIYA)
+               ||
+                   (model.TithiAtSunrise.Paksha.Equals(PakshaConst.SHUKLA_PAKSHA)
+               && model.MonthEndOption.Equals("P")
+               && model.MasaAtSunrise.Name.Equals(MasaConst.KARTIK_STR)
+               && model.TithiAtSunrise.TithiNumber % 15 == TithiConst.DWITIYA))
+                {
+                    message += " Bhai Dooj ";
+                }
+                if ((model.PanchangTithi.Paksha.Equals(PakshaConst.SHUKLA_PAKSHA)
+                  && model.MonthEndOption.Equals("P")
+                  && model.Masa.Name.Equals(MasaConst.KARTIK_STR)
+                  && model.PanchangTithi.TithiNumber % 15 == TithiConst.EKADASHI)
+                  ||
+                      (model.TithiAtSunrise.Paksha.Equals(PakshaConst.SHUKLA_PAKSHA)
+                  && model.MonthEndOption.Equals("P")
+                  && model.MasaAtSunrise.Name.Equals(MasaConst.KARTIK_STR)
+                  && model.TithiAtSunrise.TithiNumber % 15 == TithiConst.EKADASHI))
+                {
+                    message += " Praodhini Ekadashi - Tulsi Vivah ";
+                }
+
+                if ((model.PanchangTithi.Paksha.Equals(PakshaConst.KRISHNA_PAKSHA)
+                 && model.MonthEndOption.Equals("P")
+                 && model.Masa.Name.Equals(MasaConst.MARGHASHIRSHA_STR)
+                 && model.PanchangTithi.TithiNumber % 15 == TithiConst.CHATURTHI)
+                 ||
+                     (model.TithiAtSunrise.Paksha.Equals(PakshaConst.KRISHNA_PAKSHA)
+                 && model.MonthEndOption.Equals("P")
+                 && model.MasaAtSunrise.Name.Equals(MasaConst.MARGHASHIRSHA_STR)
+                 && model.TithiAtSunrise.TithiNumber % 15 == TithiConst.CHATURTHI))
+                {
+                    message += " Ganaadhipati Sankashti Chaturthi ";
+                }
+
+                if ((model.PanchangTithi.Paksha.Equals(PakshaConst.KRISHNA_PAKSHA)
+                  && model.MonthEndOption.Equals("P")
+                  && model.Masa.Name.Equals(MasaConst.MARGHASHIRSHA_STR)
+                  && model.PanchangTithi.TithiNumber % 15 == TithiConst.EKADASHI)
+                  ||
+                      (model.TithiAtSunrise.Paksha.Equals(PakshaConst.KRISHNA_PAKSHA)
+                  && model.MonthEndOption.Equals("P")
+                  && model.MasaAtSunrise.Name.Equals(MasaConst.MARGHASHIRSHA_STR)
+                  && model.TithiAtSunrise.TithiNumber % 15 == TithiConst.EKADASHI))
+                {
+                    message += " Utpanna Ekadashi ";
+                }
+
+                if ((model.PanchangTithi.Paksha.Equals(PakshaConst.SHUKLA_PAKSHA)
+                  && model.MonthEndOption.Equals("P")
+                  && model.Masa.Name.Equals(MasaConst.MARGHASHIRSHA_STR)
+                  && model.PanchangTithi.TithiNumber % 15 == TithiConst.EKADASHI)
+                  ||
+                      (model.TithiAtSunrise.Paksha.Equals(PakshaConst.SHUKLA_PAKSHA)
+                  && model.MonthEndOption.Equals("P")
+                  && model.MasaAtSunrise.Name.Equals(MasaConst.MARGHASHIRSHA_STR)
+                  && model.TithiAtSunrise.TithiNumber % 15 == TithiConst.EKADASHI))
+                {
+                    message += " Mokshada Ekadashi - Gita Jayanti ";
+                }
+
+                if ((model.PanchangTithi.Paksha.Equals(PakshaConst.KRISHNA_PAKSHA)
+                 && model.MonthEndOption.Equals("P")
+                 && model.Masa.Name.Equals(MasaConst.PUSHYA_STR)
+                 && model.PanchangTithi.TithiNumber % 15 == TithiConst.CHATURTHI)
+                 ||
+                     (model.TithiAtSunrise.Paksha.Equals(PakshaConst.KRISHNA_PAKSHA)
+                 && model.MonthEndOption.Equals("P")
+                 && model.MasaAtSunrise.Name.Equals(MasaConst.PUSHYA_STR)
+                 && model.TithiAtSunrise.TithiNumber % 15 == TithiConst.CHATURTHI))
+                {
+                    message += " Akuratha Sankashti Chaturthi ";
+                }
+
+                if ((model.PanchangTithi.Paksha.Equals(PakshaConst.KRISHNA_PAKSHA)
+                 && model.MonthEndOption.Equals("P")
+                 && model.Masa.Name.Equals(MasaConst.PUSHYA_STR)
+                 && model.PanchangTithi.TithiNumber % 15 == TithiConst.EKADASHI)
+                 ||
+                     (model.TithiAtSunrise.Paksha.Equals(PakshaConst.KRISHNA_PAKSHA)
+                 && model.MonthEndOption.Equals("P")
+                 && model.MasaAtSunrise.Name.Equals(MasaConst.PUSHYA_STR)
+                 && model.TithiAtSunrise.TithiNumber % 15 == TithiConst.EKADASHI))
+                {
+                    message += " Safalaa Ekadashi ";
+                }
+                if ((model.PanchangTithi.Paksha.Equals(PakshaConst.SHUKLA_PAKSHA)
+                 && model.MonthEndOption.Equals("P")
+                 && model.Masa.Name.Equals(MasaConst.PUSHYA_STR)
+                 && model.PanchangTithi.TithiNumber % 15 == TithiConst.EKADASHI)
+                 ||
+                     (model.TithiAtSunrise.Paksha.Equals(PakshaConst.SHUKLA_PAKSHA)
+                 && model.MonthEndOption.Equals("P")
+                 && model.MasaAtSunrise.Name.Equals(MasaConst.PUSHYA_STR)
+                 && model.TithiAtSunrise.TithiNumber % 15 == TithiConst.EKADASHI))
+                {
+                    message += " Putrada Ekadashi ";
+                }
+
+                if ((model.PanchangTithi.Paksha.Equals(PakshaConst.KRISHNA_PAKSHA)
+                && model.MonthEndOption.Equals("P")
+                && model.Masa.Name.Equals(MasaConst.MAGHA_STR)
                 && model.PanchangTithi.TithiNumber % 15 == TithiConst.EKADASHI)
                 ||
                     (model.TithiAtSunrise.Paksha.Equals(PakshaConst.KRISHNA_PAKSHA)
                 && model.MonthEndOption.Equals("P")
-                && model.MasaAtSunrise.Name.Equals(MasaConst.CHAITRA_STR)
+                && model.MasaAtSunrise.Name.Equals(MasaConst.MAGHA_STR)
                 && model.TithiAtSunrise.TithiNumber % 15 == TithiConst.EKADASHI))
-            {
-                message += " Paapmochani Ekadashi ";
-            }
-            if ((model.PanchangTithi.Paksha.Equals(PakshaConst.SHUKLA_PAKSHA)
-              && model.MonthEndOption.Equals("P")
-              && model.Masa.Name.Equals(MasaConst.CHAITRA_STR)
-              && model.PanchangTithi.TithiNumber % 15 == TithiConst.PRATHAMA)
-              ||
-                   (model.TithiAtSunrise.Paksha.Equals(PakshaConst.SHUKLA_PAKSHA)
-              && model.MonthEndOption.Equals("P")
-              && model.MasaAtSunrise.Name.Equals(MasaConst.CHAITRA_STR)
-              && model.TithiAtSunrise.TithiNumber % 15 == TithiConst.PRATHAMA))
-            {
-                message += " Gudi Padwa ";
-            }
-            if ((model.PanchangTithi.Paksha.Equals(PakshaConst.SHUKLA_PAKSHA)
-               && model.MonthEndOption.Equals("P") 
-               && model.Masa.Name.Equals(MasaConst.CHAITRA_STR)
-               && model.PanchangTithi.TithiNumber % 15 >= TithiConst.PRATHAMA
-               && model.PanchangTithi.TithiNumber % 15 <= TithiConst.NAVMI)
+                {
+                    message += " Shatt Shila Ekadashi ";
+                }
+
+                if ((model.PanchangTithi.Paksha.Equals(PakshaConst.KRISHNA_PAKSHA)
+                 && model.MonthEndOption.Equals("P")
+                 && model.Masa.Name.Equals(MasaConst.MAGHA_STR)
+                 && model.PanchangTithi.TithiNumber % 15 == TithiConst.CHATURTHI)
+                 ||
+                     (model.TithiAtSunrise.Paksha.Equals(PakshaConst.KRISHNA_PAKSHA)
+                 && model.MonthEndOption.Equals("P")
+                 && model.MasaAtSunrise.Name.Equals(MasaConst.MAGHA_STR)
+                 && model.TithiAtSunrise.TithiNumber % 15 == TithiConst.CHATURTHI))
+                {
+                    message += " Lambodara Sankashti Chaturthi ";
+                }
+
+                if ((model.PanchangTithi.Paksha.Equals(PakshaConst.SHUKLA_PAKSHA)
+               && model.MonthEndOption.Equals("P")
+               && model.Masa.Name.Equals(MasaConst.MAGHA_STR)
+               && model.PanchangTithi.TithiNumber % 15 == TithiConst.PANCHAMI)
                ||
-                    (model.TithiAtSunrise.Paksha.Equals(PakshaConst.SHUKLA_PAKSHA)
-               && model.MonthEndOption.Equals("P")
-               && model.MasaAtSunrise.Name.Equals(MasaConst.CHAITRA_STR)
-               && model.TithiAtSunrise.TithiNumber % 15 >= TithiConst.PRATHAMA
-               && model.TithiAtSunrise.TithiNumber % 15 <= TithiConst.NAVMI))
-            {
-                message += " Chaitra Navratri ";
-            }
-            if ((model.PanchangTithi.Paksha.Equals(PakshaConst.SHUKLA_PAKSHA)
-              && model.MonthEndOption.Equals("P")
-              && model.Masa.Name.Equals(MasaConst.CHAITRA_STR)
-              && model.PanchangTithi.TithiNumber % 15 == TithiConst.NAVMI)
-              ||
                    (model.TithiAtSunrise.Paksha.Equals(PakshaConst.SHUKLA_PAKSHA)
-              && model.MonthEndOption.Equals("P")
-              && model.MasaAtSunrise.Name.Equals(MasaConst.CHAITRA_STR)
-              && model.TithiAtSunrise.TithiNumber % 15 == TithiConst.NAVMI))
-            {
-                message += " Ram Navmi ";
-            }
-            if ((model.PanchangTithi.Paksha.Equals(PakshaConst.SHUKLA_PAKSHA)
                && model.MonthEndOption.Equals("P")
-               && model.Masa.Name.Equals(MasaConst.CHAITRA_STR)
+               && model.MasaAtSunrise.Name.Equals(MasaConst.MAGHA_STR)
+               && model.TithiAtSunrise.TithiNumber % 15 == TithiConst.PANCHAMI))
+                {
+                    message += " Vasant Panchami ";
+                }
+                if ((model.PanchangTithi.Paksha.Equals(PakshaConst.SHUKLA_PAKSHA)
+               && model.MonthEndOption.Equals("P")
+               && model.Masa.Name.Equals(MasaConst.MAGHA_STR)
                && model.PanchangTithi.TithiNumber % 15 == TithiConst.EKADASHI)
                ||
                    (model.TithiAtSunrise.Paksha.Equals(PakshaConst.SHUKLA_PAKSHA)
                && model.MonthEndOption.Equals("P")
-               && model.MasaAtSunrise.Name.Equals(MasaConst.CHAITRA_STR)
+               && model.MasaAtSunrise.Name.Equals(MasaConst.MAGHA_STR)
                && model.TithiAtSunrise.TithiNumber % 15 == TithiConst.EKADASHI))
-            {
-                message += " Kamada Ekadashi ";
-            }
-            if ((model.PanchangTithi.Paksha.Equals(PakshaConst.SHUKLA_PAKSHA)
+                {
+                    message += " Jayaa Ekadashi";
+                }
+                if ((model.PanchangTithi.Paksha.Equals(PakshaConst.SHUKLA_PAKSHA)
+             && model.MonthEndOption.Equals("P")
+             && model.Masa.Name.Equals(MasaConst.MAGHA_STR)
+             && model.PanchangTithi.TithiNumber % 15 == TithiConst.TRAYODASI)
+             ||
+                 (model.TithiAtSunrise.Paksha.Equals(PakshaConst.SHUKLA_PAKSHA)
+             && model.MonthEndOption.Equals("P")
+             && model.MasaAtSunrise.Name.Equals(MasaConst.MAGHA_STR)
+             && model.TithiAtSunrise.TithiNumber % 15 == TithiConst.TRAYODASI))
+                {
+                    message += " Vishwakarma Jayanti ";
+                }
+                if ((model.PanchangTithi.Paksha.Equals(PakshaConst.KRISHNA_PAKSHA)
               && model.MonthEndOption.Equals("P")
-              && model.Masa.Name.Equals(MasaConst.CHAITRA_STR)
-              && model.PanchangTithi.TithiNumber == TithiConst.POORNIMA)
-              ||
-                   (model.TithiAtSunrise.Paksha.Equals(PakshaConst.SHUKLA_PAKSHA)
-              && model.MonthEndOption.Equals("P")
-              && model.MasaAtSunrise.Name.Equals(MasaConst.CHAITRA_STR)
-              && model.TithiAtSunrise.TithiNumber == TithiConst.POORNIMA))
-            {
-                message += " Hanuman Jayanti ";
-            }
-
-            if ((model.PanchangTithi.Paksha.Equals(PakshaConst.KRISHNA_PAKSHA)
-              && model.MonthEndOption.Equals("P")
-              && model.Masa.Name.Equals(MasaConst.VAISHAKH_STR)
+              && model.Masa.Name.Equals(MasaConst.PHALGUN_STR)
               && model.PanchangTithi.TithiNumber % 15 == TithiConst.CHATURTHI)
               ||
                   (model.TithiAtSunrise.Paksha.Equals(PakshaConst.KRISHNA_PAKSHA)
               && model.MonthEndOption.Equals("P")
-              && model.MasaAtSunrise.Name.Equals(MasaConst.VAISHAKH_STR)
+              && model.MasaAtSunrise.Name.Equals(MasaConst.PHALGUN_STR)
               && model.TithiAtSunrise.TithiNumber % 15 == TithiConst.CHATURTHI))
-            {
-                message += " Vikata Sankashti Chaturthi ";
-            }
-
-
-            if ((model.PanchangTithi.Paksha.Equals(PakshaConst.KRISHNA_PAKSHA)
+                {
+                    message += " Dwijapriya Sankashti Chaturthi ";
+                }
+                if ((model.PanchangTithi.Paksha.Equals(PakshaConst.KRISHNA_PAKSHA)
                && model.MonthEndOption.Equals("P")
-               && model.Masa.Name.Equals(MasaConst.VAISHAKH_STR)
+               && model.Masa.Name.Equals(MasaConst.PHALGUN_STR)
                && model.PanchangTithi.TithiNumber % 15 == TithiConst.EKADASHI)
                ||
                    (model.TithiAtSunrise.Paksha.Equals(PakshaConst.KRISHNA_PAKSHA)
                && model.MonthEndOption.Equals("P")
-               && model.MasaAtSunrise.Name.Equals(MasaConst.VAISHAKH_STR)
+               && model.MasaAtSunrise.Name.Equals(MasaConst.PHALGUN_STR)
                && model.TithiAtSunrise.TithiNumber % 15 == TithiConst.EKADASHI))
-            {
-                message += " Varuthini Ekadashi ";
-            }
-            if ((model.PanchangTithi.Paksha.Equals(PakshaConst.SHUKLA_PAKSHA)
-              && model.MonthEndOption.Equals("P")
-              && model.Masa.Name.Equals(MasaConst.VAISHAKH_STR)
-              && model.PanchangTithi.TithiNumber% 15 == TithiConst.TRITIYA)
-              ||
-                   (model.TithiAtSunrise.Paksha.Equals(PakshaConst.SHUKLA_PAKSHA)
-              && model.MonthEndOption.Equals("P")
-              && model.MasaAtSunrise.Name.Equals(MasaConst.VAISHAKH_STR)
-              && model.TithiAtSunrise.TithiNumber% 15 == TithiConst.TRITIYA))
-            {
-                message += " Parashuram Jayanti - Akshaya Tritiya ";
-            }
-            if ((model.PanchangTithi.Paksha.Equals(PakshaConst.SHUKLA_PAKSHA)
-              && model.MonthEndOption.Equals("P")
-              && model.Masa.Name.Equals(MasaConst.VAISHAKH_STR)
-              && model.PanchangTithi.TithiNumber % 15 == TithiConst.SAPTAMI)
-              ||
-                   (model.TithiAtSunrise.Paksha.Equals(PakshaConst.SHUKLA_PAKSHA)
-              && model.MonthEndOption.Equals("P")
-              && model.MasaAtSunrise.Name.Equals(MasaConst.VAISHAKH_STR)
-              && model.TithiAtSunrise.TithiNumber % 15 == TithiConst.SAPTAMI))
-            {
-                message += " Ganga Saptami ";
-            }
-            if ((model.PanchangTithi.Paksha.Equals(PakshaConst.SHUKLA_PAKSHA)
-             && model.MonthEndOption.Equals("P")
-             && model.Masa.Name.Equals(MasaConst.VAISHAKH_STR)
-             && model.PanchangTithi.TithiNumber % 15 == TithiConst.NAVMI)
-             ||
-                  (model.TithiAtSunrise.Paksha.Equals(PakshaConst.SHUKLA_PAKSHA)
-             && model.MonthEndOption.Equals("P")
-             && model.MasaAtSunrise.Name.Equals(MasaConst.VAISHAKH_STR)
-             && model.TithiAtSunrise.TithiNumber % 15 == TithiConst.NAVMI))
-            {
-                message += " Seeta Navmi ";
-            }
-            if ((model.PanchangTithi.Paksha.Equals(PakshaConst.SHUKLA_PAKSHA)
-            && model.MonthEndOption.Equals("P")
-            && model.Masa.Name.Equals(MasaConst.VAISHAKH_STR)
-            && model.PanchangTithi.TithiNumber % 15 == TithiConst.EKADASHI)
-            ||
-                 (model.TithiAtSunrise.Paksha.Equals(PakshaConst.SHUKLA_PAKSHA)
-            && model.MonthEndOption.Equals("P")
-            && model.MasaAtSunrise.Name.Equals(MasaConst.VAISHAKH_STR)
-            && model.TithiAtSunrise.TithiNumber % 15 == TithiConst.EKADASHI))
-            {
-                message += " Mohini Ekadashi ";
-            }
-            if ((model.PanchangTithi.Paksha.Equals(PakshaConst.SHUKLA_PAKSHA)
-            && model.MonthEndOption.Equals("P")
-            && model.Masa.Name.Equals(MasaConst.VAISHAKH_STR)
-            && model.PanchangTithi.TithiNumber % 15 == TithiConst.CHATURDASHI)
-            ||
-                 (model.TithiAtSunrise.Paksha.Equals(PakshaConst.SHUKLA_PAKSHA)
-            && model.MonthEndOption.Equals("P")
-            && model.MasaAtSunrise.Name.Equals(MasaConst.VAISHAKH_STR)
-            && model.TithiAtSunrise.TithiNumber % 15 == TithiConst.CHATURDASHI))
-            {
-                message += " Narasimha Jayanti ";
-            }
-            if ((model.PanchangTithi.Paksha.Equals(PakshaConst.SHUKLA_PAKSHA)
-              && model.MonthEndOption.Equals("P")
-              && model.Masa.Name.Equals(MasaConst.VAISHAKH_STR)
-              && model.PanchangTithi.TithiNumber == TithiConst.POORNIMA)
-              ||
-                   (model.TithiAtSunrise.Paksha.Equals(PakshaConst.SHUKLA_PAKSHA)
-              && model.MonthEndOption.Equals("P")
-              && model.MasaAtSunrise.Name.Equals(MasaConst.VAISHAKH_STR)
-              && model.TithiAtSunrise.TithiNumber == TithiConst.POORNIMA))
-            {
-                message += " Buddha Poornima ";
-            }
-            if ((model.PanchangTithi.Paksha.Equals(PakshaConst.KRISHNA_PAKSHA)
-             && model.MonthEndOption.Equals("P")
-             && model.Masa.Name.Equals(MasaConst.JYESHTHA_STR)
-             && model.PanchangTithi.TithiNumber %15 == TithiConst.PRATHAMA)
-             ||
-                  (model.TithiAtSunrise.Paksha.Equals(PakshaConst.KRISHNA_PAKSHA)
-             && model.MonthEndOption.Equals("P")
-             && model.MasaAtSunrise.Name.Equals(MasaConst.JYESHTHA_STR)
-             && model.TithiAtSunrise.TithiNumber % 15 == TithiConst.PRATHAMA))
-            {
-                message += " Naarad Jayanti ";
-            }
-
-            if ((model.PanchangTithi.Paksha.Equals(PakshaConst.KRISHNA_PAKSHA)
-             && model.MonthEndOption.Equals("P")
-             && model.Masa.Name.Equals(MasaConst.JYESHTHA_STR)
-             && model.PanchangTithi.TithiNumber % 15 == TithiConst.CHATURTHI)
-             ||
-                  (model.TithiAtSunrise.Paksha.Equals(PakshaConst.KRISHNA_PAKSHA)
-             && model.MonthEndOption.Equals("P")
-             && model.MasaAtSunrise.Name.Equals(MasaConst.JYESHTHA_STR)
-             && model.TithiAtSunrise.TithiNumber % 15 == TithiConst.CHATURTHI))
-            {
-                message += " Ekdanta Sankashti Chaturhi ";
-            }
-
-            if ((model.PanchangTithi.Paksha.Equals(PakshaConst.KRISHNA_PAKSHA)
-              && model.MonthEndOption.Equals("P")
-              && model.Masa.Name.Equals(MasaConst.JYESHTHA_STR)
-              && model.PanchangTithi.TithiNumber % 15 == TithiConst.EKADASHI)
-              ||
-                   (model.TithiAtSunrise.Paksha.Equals(PakshaConst.KRISHNA_PAKSHA)
-              && model.MonthEndOption.Equals("P")
-              && model.MasaAtSunrise.Name.Equals(MasaConst.JYESHTHA_STR)
-              && model.TithiAtSunrise.TithiNumber % 15 == TithiConst.EKADASHI))
-            {
-                message += " Apara Ekadashi ";
-            }
-            if ((model.PanchangTithi.Paksha.Equals(PakshaConst.KRISHNA_PAKSHA)
-              && model.MonthEndOption.Equals("P")
-              && model.Masa.Name.Equals(MasaConst.JYESHTHA_STR)
-              && model.PanchangTithi.TithiNumber == TithiConst.AMAVASYA)
-              ||
-                   (model.TithiAtSunrise.Paksha.Equals(PakshaConst.KRISHNA_PAKSHA)
-              && model.MonthEndOption.Equals("P")
-              && model.MasaAtSunrise.Name.Equals(MasaConst.JYESHTHA_STR)
-              && model.TithiAtSunrise.TithiNumber == TithiConst.AMAVASYA))
-            {
-                message += " Shani Jayanti ";
-            }
-            if ((model.PanchangTithi.Paksha.Equals(PakshaConst.SHUKLA_PAKSHA)
-              && model.MonthEndOption.Equals("P")
-              && model.Masa.Name.Equals(MasaConst.JYESHTHA_STR)
-              && model.PanchangTithi.TithiNumber %15  == TithiConst.DASHMI)
-              ||
-                   (model.TithiAtSunrise.Paksha.Equals(PakshaConst.SHUKLA_PAKSHA)
-              && model.MonthEndOption.Equals("P")
-              && model.MasaAtSunrise.Name.Equals(MasaConst.JYESHTHA_STR)
-              && model.TithiAtSunrise.TithiNumber %15 == TithiConst.DASHMI))
-            {
-                message += " Ganga Dashahera ";
-            }
-            if ((model.PanchangTithi.Paksha.Equals(PakshaConst.SHUKLA_PAKSHA)
-              && model.MonthEndOption.Equals("P")
-              && model.Masa.Name.Equals(MasaConst.JYESHTHA_STR)
-              && model.PanchangTithi.TithiNumber % 15 == TithiConst.EKADASHI)
-              ||
-                   (model.TithiAtSunrise.Paksha.Equals(PakshaConst.SHUKLA_PAKSHA)
-              && model.MonthEndOption.Equals("P")
-              && model.MasaAtSunrise.Name.Equals(MasaConst.JYESHTHA_STR)
-              && model.TithiAtSunrise.TithiNumber % 15 == TithiConst.EKADASHI))
-            {
-                message += " Nirjala Ekadashi ";
-            }
-            if ((model.PanchangTithi.Paksha.Equals(PakshaConst.SHUKLA_PAKSHA)
-             && model.MonthEndOption.Equals("P")
-             && model.Masa.Name.Equals(MasaConst.JYESHTHA_STR)
-             && model.PanchangTithi.TithiNumber == TithiConst.POORNIMA)
-             ||
-                  (model.TithiAtSunrise.Paksha.Equals(PakshaConst.SHUKLA_PAKSHA)
-             && model.MonthEndOption.Equals("P")
-             && model.MasaAtSunrise.Name.Equals(MasaConst.JYESHTHA_STR)
-             && model.TithiAtSunrise.TithiNumber == TithiConst.POORNIMA))
-            {
-                message += " Vat Savitri Poornima ";
-            }
-            if ((model.PanchangTithi.Paksha.Equals(PakshaConst.KRISHNA_PAKSHA)
-             && model.MonthEndOption.Equals("P")
-             && model.Masa.Name.Equals(MasaConst.ASHAADH_STR)
-             && model.PanchangTithi.TithiNumber % 15 == TithiConst.CHATURTHI)
-             ||
-                  (model.TithiAtSunrise.Paksha.Equals(PakshaConst.KRISHNA_PAKSHA)
-             && model.MonthEndOption.Equals("P")
-             && model.MasaAtSunrise.Name.Equals(MasaConst.ASHAADH_STR)
-             && model.TithiAtSunrise.TithiNumber % 15 == TithiConst.CHATURTHI))
-            {
-                message += " KrishnaPingala Sankashti Chaturthi ";
-            }
-
-            if ((model.PanchangTithi.Paksha.Equals(PakshaConst.KRISHNA_PAKSHA)
-              && model.MonthEndOption.Equals("P")
-              && model.Masa.Name.Equals(MasaConst.ASHAADH_STR)
-              && model.PanchangTithi.TithiNumber % 15 == TithiConst.EKADASHI)
-              ||
-                   (model.TithiAtSunrise.Paksha.Equals(PakshaConst.KRISHNA_PAKSHA)
-              && model.MonthEndOption.Equals("P")
-              && model.MasaAtSunrise.Name.Equals(MasaConst.ASHAADH_STR)
-              && model.TithiAtSunrise.TithiNumber % 15 == TithiConst.EKADASHI))
-            {
-                message += " Yogini Ekadashi ";
-            }
-            if ((model.PanchangTithi.Paksha.Equals(PakshaConst.SHUKLA_PAKSHA)
-             && model.MonthEndOption.Equals("P")
-             && model.Masa.Name.Equals(MasaConst.ASHAADH_STR)
-             && model.PanchangTithi.TithiNumber % 15 == TithiConst.DWITIYA)
-             ||
-                  (model.TithiAtSunrise.Paksha.Equals(PakshaConst.SHUKLA_PAKSHA)
-             && model.MonthEndOption.Equals("P")
-             && model.MasaAtSunrise.Name.Equals(MasaConst.ASHAADH_STR)
-             && model.TithiAtSunrise.TithiNumber % 15 == TithiConst.DWITIYA))
-            {
-                message += " Jagannath Rath Yatra ";
-            }
-            if ((model.PanchangTithi.Paksha.Equals(PakshaConst.SHUKLA_PAKSHA)
-             && model.MonthEndOption.Equals("P")
-             && model.Masa.Name.Equals(MasaConst.ASHAADH_STR)
-             && model.PanchangTithi.TithiNumber % 15 == TithiConst.EKADASHI)
-             ||
-                  (model.TithiAtSunrise.Paksha.Equals(PakshaConst.SHUKLA_PAKSHA)
-             && model.MonthEndOption.Equals("P")
-             && model.MasaAtSunrise.Name.Equals(MasaConst.ASHAADH_STR)
-             && model.TithiAtSunrise.TithiNumber % 15 == TithiConst.EKADASHI))
-            {
-                message += " Devshayani Ekadashi ";
-            }
-            if ((model.PanchangTithi.Paksha.Equals(PakshaConst.SHUKLA_PAKSHA)
-             && model.MonthEndOption.Equals("P")
-             && model.Masa.Name.Equals(MasaConst.ASHAADH_STR)
-             && model.PanchangTithi.TithiNumber == TithiConst.POORNIMA)
-             ||
-                  (model.TithiAtSunrise.Paksha.Equals(PakshaConst.SHUKLA_PAKSHA)
-             && model.MonthEndOption.Equals("P")
-             && model.MasaAtSunrise.Name.Equals(MasaConst.ASHAADH_STR)
-             && model.TithiAtSunrise.TithiNumber == TithiConst.POORNIMA))
-            {
-                message += " Guru Poornima ";
-            }
-            if ((model.PanchangTithi.Paksha.Equals(PakshaConst.KRISHNA_PAKSHA)
-             && model.MonthEndOption.Equals("P")
-             && model.Masa.Name.Equals(MasaConst.SHRAVAN_STR)
-             && model.PanchangTithi.TithiNumber % 15 == TithiConst.CHATURTHI)
-             ||
-                  (model.TithiAtSunrise.Paksha.Equals(PakshaConst.KRISHNA_PAKSHA)
-             && model.MonthEndOption.Equals("P")
-             && model.MasaAtSunrise.Name.Equals(MasaConst.SHRAVAN_STR)
-             && model.TithiAtSunrise.TithiNumber % 15 == TithiConst.CHATURTHI))
-            {
-                message += " Gajaanan Sankashti Chaturthi ";
-            }
-
-            if ((model.PanchangTithi.Paksha.Equals(PakshaConst.KRISHNA_PAKSHA)
-             && model.MonthEndOption.Equals("P")
-             && model.Masa.Name.Equals(MasaConst.SHRAVAN_STR)
-             && model.PanchangTithi.TithiNumber % 15 == TithiConst.EKADASHI)
-             ||
-                  (model.TithiAtSunrise.Paksha.Equals(PakshaConst.KRISHNA_PAKSHA)
-             && model.MonthEndOption.Equals("P")
-             && model.MasaAtSunrise.Name.Equals(MasaConst.SHRAVAN_STR)
-             && model.TithiAtSunrise.TithiNumber % 15 == TithiConst.EKADASHI))
-            {
-                message += " Kamika Ekadashi ";
-            }
-            if (model.MonthEndOption.Equals("P")
-            && model.Masa.Name.Equals(MasaConst.SHRAVAN_STR)
-            && model.VaraLabelStr.Equals(VaraConst.SOMWAAR_STR)
-            ||
-                 (model.MonthEndOption.Equals("P")
-            && model.MasaAtSunrise.Name.Equals(MasaConst.SHRAVAN_STR)
-            && model.VaraLabelStr.Equals(VaraConst.SOMWAAR_STR)))
-            {
-                message += " Shraavan Somwar ";
-            }
-            if ((model.PanchangTithi.Paksha.Equals(PakshaConst.SHUKLA_PAKSHA)
-             && model.MonthEndOption.Equals("P")
-             && model.Masa.Name.Equals(MasaConst.SHRAVAN_STR)
-             && model.PanchangTithi.TithiNumber % 15 == TithiConst.EKADASHI)
-             ||
-                  (model.TithiAtSunrise.Paksha.Equals(PakshaConst.SHUKLA_PAKSHA)
-             && model.MonthEndOption.Equals("P")
-             && model.MasaAtSunrise.Name.Equals(MasaConst.SHRAVAN_STR)
-             && model.TithiAtSunrise.TithiNumber % 15 == TithiConst.EKADASHI))
-            {
-                message += " Putrada Ekadashi ";
-            }
-            if ((model.PanchangTithi.Paksha.Equals(PakshaConst.SHUKLA_PAKSHA)
-             && model.MonthEndOption.Equals("P")
-             && model.Masa.Name.Equals(MasaConst.SHRAVAN_STR)
-             && model.PanchangTithi.TithiNumber % 15 == TithiConst.EKADASHI)
-             ||
-                  (model.TithiAtSunrise.Paksha.Equals(PakshaConst.SHUKLA_PAKSHA)
-             && model.MonthEndOption.Equals("P")
-             && model.MasaAtSunrise.Name.Equals(MasaConst.SHRAVAN_STR)
-             && model.TithiAtSunrise.TithiNumber % 15 == TithiConst.EKADASHI))
-            {
-                message += " Putrada Ekadashi ";
-            }
-            if ((model.PanchangTithi.Paksha.Equals(PakshaConst.SHUKLA_PAKSHA)
-             && model.MonthEndOption.Equals("P")
-             && model.Masa.Name.Equals(MasaConst.SHRAVAN_STR)
-             && model.PanchangTithi.TithiNumber == TithiConst.POORNIMA)
-             ||
-                  (model.TithiAtSunrise.Paksha.Equals(PakshaConst.SHUKLA_PAKSHA)
-             && model.MonthEndOption.Equals("P")
-             && model.MasaAtSunrise.Name.Equals(MasaConst.SHRAVAN_STR)
-             && model.TithiAtSunrise.TithiNumber == TithiConst.POORNIMA))
-            {
-                message += " Nariyali Poornima ";
-            }
-            if ((model.PanchangTithi.Paksha.Equals(PakshaConst.KRISHNA_PAKSHA)
-            && model.MonthEndOption.Equals("P")
-            && model.Masa.Name.Equals(MasaConst.BADHRPAD_STR)
-            && model.PanchangTithi.TithiNumber % 15 == TithiConst.CHATURTHI)
-            ||
-                 (model.TithiAtSunrise.Paksha.Equals(PakshaConst.KRISHNA_PAKSHA)
-            && model.MonthEndOption.Equals("P")
-            && model.MasaAtSunrise.Name.Equals(MasaConst.BADHRPAD_STR)
-            && model.TithiAtSunrise.TithiNumber % 15 == TithiConst.CHATURTHI))
-            {
-                message += " Heramba Sankashti Chaturthi ";
-            }
-
-            if ((model.PanchangTithi.Paksha.Equals(PakshaConst.KRISHNA_PAKSHA)
-            && model.MonthEndOption.Equals("P")
-            && model.Masa.Name.Equals(MasaConst.BADHRPAD_STR)
-            && model.PanchangTithi.TithiNumber % 15 == TithiConst.EKADASHI)
-            ||
-                 (model.TithiAtSunrise.Paksha.Equals(PakshaConst.KRISHNA_PAKSHA)
-            && model.MonthEndOption.Equals("P")
-            && model.MasaAtSunrise.Name.Equals(MasaConst.BADHRPAD_STR)
-            && model.TithiAtSunrise.TithiNumber % 15 == TithiConst.EKADASHI))
-            {
-                message += " Ajaa Ekadashi ";
-            }
-            if ((model.PanchangTithi.Paksha.Equals(PakshaConst.SHUKLA_PAKSHA)
-            && model.MonthEndOption.Equals("P")
-            && model.Masa.Name.Equals(MasaConst.BADHRPAD_STR)
-            && model.PanchangTithi.TithiNumber % 15 == TithiConst.TRITIYA)
-            ||
-                 (model.TithiAtSunrise.Paksha.Equals(PakshaConst.SHUKLA_PAKSHA)
-            && model.MonthEndOption.Equals("P")
-            && model.MasaAtSunrise.Name.Equals(MasaConst.BADHRPAD_STR)
-            && model.TithiAtSunrise.TithiNumber % 15 == TithiConst.TRITIYA))
-            {
-                message += " Hartaalika Teej ";
-            }
-            if ((model.PanchangTithi.Paksha.Equals(PakshaConst.SHUKLA_PAKSHA)
-            && model.MonthEndOption.Equals("P")
-            && model.Masa.Name.Equals(MasaConst.BADHRPAD_STR)
-            && model.PanchangTithi.TithiNumber % 15 == TithiConst.CHATURTHI)
-            ||
-                 (model.TithiAtSunrise.Paksha.Equals(PakshaConst.SHUKLA_PAKSHA)
-            && model.MonthEndOption.Equals("P")
-            && model.MasaAtSunrise.Name.Equals(MasaConst.BADHRPAD_STR)
-            && model.TithiAtSunrise.TithiNumber % 15 == TithiConst.CHATURTHI))
-            {
-                message += " Ganesh Chaturthi ";
-            }
-            if ((model.PanchangTithi.Paksha.Equals(PakshaConst.SHUKLA_PAKSHA)
-            && model.MonthEndOption.Equals("P")
-            && model.Masa.Name.Equals(MasaConst.BADHRPAD_STR)
-            && model.PanchangTithi.TithiNumber % 15 == TithiConst.PANCHAMI)
-            ||
-                 (model.TithiAtSunrise.Paksha.Equals(PakshaConst.SHUKLA_PAKSHA)
-            && model.MonthEndOption.Equals("P")
-            && model.MasaAtSunrise.Name.Equals(MasaConst.BADHRPAD_STR)
-            && model.TithiAtSunrise.TithiNumber % 15 == TithiConst.PANCHAMI))
-            {
-                message += " Rishi Panchami ";
-            }
-            if ((model.PanchangTithi.Paksha.Equals(PakshaConst.SHUKLA_PAKSHA)
-            && model.MonthEndOption.Equals("P")
-            && model.Masa.Name.Equals(MasaConst.BADHRPAD_STR)
-            && model.PanchangTithi.TithiNumber % 15 == TithiConst.ASHTAMI)
-            ||
-                 (model.TithiAtSunrise.Paksha.Equals(PakshaConst.SHUKLA_PAKSHA)
-            && model.MonthEndOption.Equals("P")
-            && model.MasaAtSunrise.Name.Equals(MasaConst.BADHRPAD_STR)
-            && model.TithiAtSunrise.TithiNumber % 15 == TithiConst.ASHTAMI))
-            {
-                message += " Radha Ashtami ";
-            }
-            if ((model.PanchangTithi.Paksha.Equals(PakshaConst.SHUKLA_PAKSHA)
-            && model.MonthEndOption.Equals("P")
-            && model.Masa.Name.Equals(MasaConst.BADHRPAD_STR)
-            && model.PanchangTithi.TithiNumber % 15 == TithiConst.EKADASHI)
-            ||
-                 (model.TithiAtSunrise.Paksha.Equals(PakshaConst.SHUKLA_PAKSHA)
-            && model.MonthEndOption.Equals("P")
-            && model.MasaAtSunrise.Name.Equals(MasaConst.BADHRPAD_STR)
-            && model.TithiAtSunrise.TithiNumber % 15 == TithiConst.EKADASHI))
-            {
-                message += " Parivartini Ekadashi ";
-            }
-            if ((model.PanchangTithi.Paksha.Equals(PakshaConst.SHUKLA_PAKSHA)
-           && model.MonthEndOption.Equals("P")
-           && model.Masa.Name.Equals(MasaConst.BADHRPAD_STR)
-           && model.PanchangTithi.TithiNumber % 15 == TithiConst.CHATURDASHI)
-           ||
-                (model.TithiAtSunrise.Paksha.Equals(PakshaConst.SHUKLA_PAKSHA)
-           && model.MonthEndOption.Equals("P")
-           && model.MasaAtSunrise.Name.Equals(MasaConst.BADHRPAD_STR)
-           && model.TithiAtSunrise.TithiNumber % 15 == TithiConst.CHATURDASHI))
-            {
-                message += " Anant Chaturdashi ";
-            }
-
-            if ((model.PanchangTithi.Paksha.Equals(PakshaConst.KRISHNA_PAKSHA)
-          && model.MonthEndOption.Equals("P")
-          && model.Masa.Name.Equals(MasaConst.KUNWAAR_STR))
-          ||
-               (model.TithiAtSunrise.Paksha.Equals(PakshaConst.KRISHNA_PAKSHA)
-          && model.MonthEndOption.Equals("P")
-          && model.MasaAtSunrise.Name.Equals(MasaConst.KUNWAAR_STR)))
-            {
-                message += " Pitru Paksha ";
-            }
-
-            if ((model.PanchangTithi.Paksha.Equals(PakshaConst.KRISHNA_PAKSHA)
-           && model.MonthEndOption.Equals("P")
-           && model.Masa.Name.Equals(MasaConst.KUNWAAR_STR)
-           && model.PanchangTithi.TithiNumber % 15 == TithiConst.CHATURTHI)
-           ||
-                (model.TithiAtSunrise.Paksha.Equals(PakshaConst.KRISHNA_PAKSHA)
-           && model.MonthEndOption.Equals("P")
-           && model.MasaAtSunrise.Name.Equals(MasaConst.KUNWAAR_STR)
-           && model.TithiAtSunrise.TithiNumber % 15 == TithiConst.CHATURTHI))
-            {
-                message += " Vighnaharta Sankashti Chaturthi ";
-            }
-
-
-            if ((model.PanchangTithi.Paksha.Equals(PakshaConst.KRISHNA_PAKSHA)
-            && model.MonthEndOption.Equals("P")
-            && model.Masa.Name.Equals(MasaConst.KUNWAAR_STR)
-            && model.PanchangTithi.TithiNumber % 15 == TithiConst.EKADASHI)
-            ||
-                 (model.TithiAtSunrise.Paksha.Equals(PakshaConst.KRISHNA_PAKSHA)
-            && model.MonthEndOption.Equals("P")
-            && model.MasaAtSunrise.Name.Equals(MasaConst.KUNWAAR_STR)
-            && model.TithiAtSunrise.TithiNumber % 15 == TithiConst.EKADASHI))
-            {
-                message += " Indira Ekadashi ";
-            }
-            if ((model.PanchangTithi.Paksha.Equals(PakshaConst.KRISHNA_PAKSHA)
-           && model.MonthEndOption.Equals("P")
-           && model.Masa.Name.Equals(MasaConst.KUNWAAR_STR)
-           && model.PanchangTithi.TithiNumber == TithiConst.AMAVASYA)
-           ||
-                (model.TithiAtSunrise.Paksha.Equals(PakshaConst.KRISHNA_PAKSHA)
-           && model.MonthEndOption.Equals("P")
-           && model.MasaAtSunrise.Name.Equals(MasaConst.KUNWAAR_STR)
-           && model.TithiAtSunrise.TithiNumber == TithiConst.AMAVASYA))
-            {
-                message += " Sarva Pitru Amavasya ";
-            }
-
-            if ((model.PanchangTithi.Paksha.Equals(PakshaConst.SHUKLA_PAKSHA)
-         && model.MonthEndOption.Equals("P")
-         && model.Masa.Name.Equals(MasaConst.KUNWAAR_STR)
-         && model.PanchangTithi.TithiNumber %15 >= TithiConst.PRATHAMA
-         && model.PanchangTithi.TithiNumber % 15 <= TithiConst.NAVMI)
-         ||
-              (model.TithiAtSunrise.Paksha.Equals(PakshaConst.SHUKLA_PAKSHA)
-         && model.MonthEndOption.Equals("P")
-         && model.MasaAtSunrise.Name.Equals(MasaConst.KUNWAAR_STR)
-         && model.TithiAtSunrise.TithiNumber % 15 >= TithiConst.PRATHAMA
-         && model.TithiAtSunrise.TithiNumber % 15 <= TithiConst.NAVMI))
-            {
-                message += " Navratri ";
-            }
-            if ((model.PanchangTithi.Paksha.Equals(PakshaConst.SHUKLA_PAKSHA)
-            && model.MonthEndOption.Equals("P")
-            && model.Masa.Name.Equals(MasaConst.KUNWAAR_STR)
-            && model.PanchangTithi.TithiNumber % 15 == TithiConst.DASHMI)
-            ||
-                (model.TithiAtSunrise.Paksha.Equals(PakshaConst.SHUKLA_PAKSHA)
-            && model.MonthEndOption.Equals("P")
-            && model.MasaAtSunrise.Name.Equals(MasaConst.KUNWAAR_STR)
-            && model.TithiAtSunrise.TithiNumber % 15 == TithiConst.DASHMI))
                 {
-                    message += " Dashahera ";
+                    message += " Vijayaa Ekadashi ";
                 }
-             if ((model.PanchangTithi.Paksha.Equals(PakshaConst.SHUKLA_PAKSHA)
-            && model.MonthEndOption.Equals("P")
-            && model.Masa.Name.Equals(MasaConst.KUNWAAR_STR)
-            && model.PanchangTithi.TithiNumber % 15 == TithiConst.EKADASHI)
-            ||
-                (model.TithiAtSunrise.Paksha.Equals(PakshaConst.SHUKLA_PAKSHA)
-            && model.MonthEndOption.Equals("P")
-            && model.MasaAtSunrise.Name.Equals(MasaConst.KUNWAAR_STR)
-            && model.TithiAtSunrise.TithiNumber % 15 == TithiConst.EKADASHI))
-            {
-                message += " Papankusha Ekadashi ";
-            }
-
-            if ((model.PanchangTithi.Paksha.Equals(PakshaConst.SHUKLA_PAKSHA)
-              && model.MonthEndOption.Equals("P")
-              && model.Masa.Name.Equals(MasaConst.KUNWAAR_STR)
-              && model.PanchangTithi.TithiNumber == TithiConst.POORNIMA)
-              ||
-                  (model.TithiAtSunrise.Paksha.Equals(PakshaConst.SHUKLA_PAKSHA)
-              && model.MonthEndOption.Equals("P")
-              && model.MasaAtSunrise.Name.Equals(MasaConst.KUNWAAR_STR)
-              && model.TithiAtSunrise.TithiNumber == TithiConst.POORNIMA))
-            {
-                message += " Sharad Poornima ";
-            }
-
-            if ((model.PanchangTithi.Paksha.Equals(PakshaConst.KRISHNA_PAKSHA)
-             && model.MonthEndOption.Equals("P")
-             && model.Masa.Name.Equals(MasaConst.KARTIK_STR)
-             && model.PanchangTithi.TithiNumber % 15 == TithiConst.CHATURTHI)
-             ||
-                 (model.TithiAtSunrise.Paksha.Equals(PakshaConst.KRISHNA_PAKSHA)
-             && model.MonthEndOption.Equals("P")
-             && model.MasaAtSunrise.Name.Equals(MasaConst.KARTIK_STR)
-             && model.TithiAtSunrise.TithiNumber % 15 == TithiConst.CHATURTHI))
-            {
-                message += " Karwa Chauth / Vakratunda Sankashti Chaturthi ";
-            }
-
-            if ((model.PanchangTithi.Paksha.Equals(PakshaConst.KRISHNA_PAKSHA)
-             && model.MonthEndOption.Equals("P")
-             && model.Masa.Name.Equals(MasaConst.KARTIK_STR)
-             && model.PanchangTithi.TithiNumber % 15 == TithiConst.EKADASHI)
-             ||
-                 (model.TithiAtSunrise.Paksha.Equals(PakshaConst.KRISHNA_PAKSHA)
-             && model.MonthEndOption.Equals("P")
-             && model.MasaAtSunrise.Name.Equals(MasaConst.KARTIK_STR)
-             && model.TithiAtSunrise.TithiNumber % 15 == TithiConst.EKADASHI))
-            {
-                message += " Ramaa Ekadashi ";
-            }
-
-            if ((model.PanchangTithi.Paksha.Equals(PakshaConst.KRISHNA_PAKSHA)
-             && model.MonthEndOption.Equals("P")
-             && model.Masa.Name.Equals(MasaConst.KARTIK_STR)
-             && model.PanchangTithi.TithiNumber % 15 == TithiConst.TRAYODASI)
-             ||
-                 (model.TithiAtSunrise.Paksha.Equals(PakshaConst.KRISHNA_PAKSHA)
-             && model.MonthEndOption.Equals("P")
-             && model.MasaAtSunrise.Name.Equals(MasaConst.KARTIK_STR)
-             && model.TithiAtSunrise.TithiNumber % 15 == TithiConst.TRAYODASI))
-            {
-                message += " Dhan Teras ";
-            }
-            if ((model.PanchangTithi.Paksha.Equals(PakshaConst.KRISHNA_PAKSHA)
-            && model.MonthEndOption.Equals("P")
-            && model.Masa.Name.Equals(MasaConst.KARTIK_STR)
-            && model.PanchangTithi.TithiNumber == TithiConst.AMAVASYA)
-            ||
-                (model.TithiAtSunrise.Paksha.Equals(PakshaConst.KRISHNA_PAKSHA)
-            && model.MonthEndOption.Equals("P")
-            && model.MasaAtSunrise.Name.Equals(MasaConst.KARTIK_STR)
-            && model.TithiAtSunrise.TithiNumber == TithiConst.AMAVASYA))
-            {
-                message += " Deepavali ";
-            }
-            if ((model.PanchangTithi.Paksha.Equals(PakshaConst.SHUKLA_PAKSHA)
-            && model.MonthEndOption.Equals("P")
-            && model.Masa.Name.Equals(MasaConst.KARTIK_STR)
-            && model.PanchangTithi.TithiNumber %15  == TithiConst.PRATHAMA)
-            ||
-                (model.TithiAtSunrise.Paksha.Equals(PakshaConst.SHUKLA_PAKSHA)
-            && model.MonthEndOption.Equals("P")
-            && model.MasaAtSunrise.Name.Equals(MasaConst.KARTIK_STR)
-            && model.TithiAtSunrise.TithiNumber %15 == TithiConst.PRATHAMA))
-            {
-                message += " Govardhan Pooja ";
-            }
-            if ((model.PanchangTithi.Paksha.Equals(PakshaConst.SHUKLA_PAKSHA)
-           && model.MonthEndOption.Equals("P")
-           && model.Masa.Name.Equals(MasaConst.KARTIK_STR)
-           && model.PanchangTithi.TithiNumber % 15 == TithiConst.DWITIYA)
-           ||
-               (model.TithiAtSunrise.Paksha.Equals(PakshaConst.SHUKLA_PAKSHA)
-           && model.MonthEndOption.Equals("P")
-           && model.MasaAtSunrise.Name.Equals(MasaConst.KARTIK_STR)
-           && model.TithiAtSunrise.TithiNumber % 15 == TithiConst.DWITIYA))
-            {
-                message += " Bhai Dooj ";
-            }
-            if ((model.PanchangTithi.Paksha.Equals(PakshaConst.SHUKLA_PAKSHA)
-              && model.MonthEndOption.Equals("P")
-              && model.Masa.Name.Equals(MasaConst.KARTIK_STR)
-              && model.PanchangTithi.TithiNumber % 15 == TithiConst.EKADASHI)
-              ||
-                  (model.TithiAtSunrise.Paksha.Equals(PakshaConst.SHUKLA_PAKSHA)
-              && model.MonthEndOption.Equals("P")
-              && model.MasaAtSunrise.Name.Equals(MasaConst.KARTIK_STR)
-              && model.TithiAtSunrise.TithiNumber % 15 == TithiConst.EKADASHI))
-            {
-                message += " Praodhini Ekadashi - Tulsi Vivah ";
-            }
-
-            if ((model.PanchangTithi.Paksha.Equals(PakshaConst.KRISHNA_PAKSHA)
-             && model.MonthEndOption.Equals("P")
-             && model.Masa.Name.Equals(MasaConst.MARGHASHIRSHA_STR)
-             && model.PanchangTithi.TithiNumber % 15 == TithiConst.CHATURTHI)
-             ||
-                 (model.TithiAtSunrise.Paksha.Equals(PakshaConst.KRISHNA_PAKSHA)
-             && model.MonthEndOption.Equals("P")
-             && model.MasaAtSunrise.Name.Equals(MasaConst.MARGHASHIRSHA_STR)
-             && model.TithiAtSunrise.TithiNumber % 15 == TithiConst.CHATURTHI))
-            {
-                message += " Ganaadhipati Sankashti Chaturthi ";
-            }
-
-            if ((model.PanchangTithi.Paksha.Equals(PakshaConst.KRISHNA_PAKSHA)
-              && model.MonthEndOption.Equals("P")
-              && model.Masa.Name.Equals(MasaConst.MARGHASHIRSHA_STR)
-              && model.PanchangTithi.TithiNumber % 15 == TithiConst.EKADASHI)
-              ||
-                  (model.TithiAtSunrise.Paksha.Equals(PakshaConst.KRISHNA_PAKSHA)
-              && model.MonthEndOption.Equals("P")
-              && model.MasaAtSunrise.Name.Equals(MasaConst.MARGHASHIRSHA_STR)
-              && model.TithiAtSunrise.TithiNumber % 15 == TithiConst.EKADASHI))
-            {
-                message += " Utpanna Ekadashi ";
-            }
-
-            if ((model.PanchangTithi.Paksha.Equals(PakshaConst.SHUKLA_PAKSHA)
-              && model.MonthEndOption.Equals("P")
-              && model.Masa.Name.Equals(MasaConst.MARGHASHIRSHA_STR)
-              && model.PanchangTithi.TithiNumber % 15 == TithiConst.EKADASHI)
-              ||
-                  (model.TithiAtSunrise.Paksha.Equals(PakshaConst.SHUKLA_PAKSHA)
-              && model.MonthEndOption.Equals("P")
-              && model.MasaAtSunrise.Name.Equals(MasaConst.MARGHASHIRSHA_STR)
-              && model.TithiAtSunrise.TithiNumber % 15 == TithiConst.EKADASHI))
-            {
-                message += " Mokshada Ekadashi - Gita Jayanti ";
-            }
-
-            if ((model.PanchangTithi.Paksha.Equals(PakshaConst.KRISHNA_PAKSHA)
-             && model.MonthEndOption.Equals("P")
-             && model.Masa.Name.Equals(MasaConst.PUSHYA_STR)
-             && model.PanchangTithi.TithiNumber % 15 == TithiConst.CHATURTHI)
-             ||
-                 (model.TithiAtSunrise.Paksha.Equals(PakshaConst.KRISHNA_PAKSHA)
-             && model.MonthEndOption.Equals("P")
-             && model.MasaAtSunrise.Name.Equals(MasaConst.PUSHYA_STR)
-             && model.TithiAtSunrise.TithiNumber % 15 == TithiConst.CHATURTHI))
-            {
-                message += " Akuratha Sankashti Chaturthi ";
-            }
-
-            if ((model.PanchangTithi.Paksha.Equals(PakshaConst.KRISHNA_PAKSHA)
-             && model.MonthEndOption.Equals("P")
-             && model.Masa.Name.Equals(MasaConst.PUSHYA_STR)
-             && model.PanchangTithi.TithiNumber % 15 == TithiConst.EKADASHI)
-             ||
-                 (model.TithiAtSunrise.Paksha.Equals(PakshaConst.KRISHNA_PAKSHA)
-             && model.MonthEndOption.Equals("P")
-             && model.MasaAtSunrise.Name.Equals(MasaConst.PUSHYA_STR)
-             && model.TithiAtSunrise.TithiNumber % 15 == TithiConst.EKADASHI))
-            {
-                message += " Safalaa Ekadashi ";
-            }
-            if ((model.PanchangTithi.Paksha.Equals(PakshaConst.SHUKLA_PAKSHA)
-             && model.MonthEndOption.Equals("P")
-             && model.Masa.Name.Equals(MasaConst.PUSHYA_STR)
-             && model.PanchangTithi.TithiNumber % 15 == TithiConst.EKADASHI)
-             ||
-                 (model.TithiAtSunrise.Paksha.Equals(PakshaConst.SHUKLA_PAKSHA)
-             && model.MonthEndOption.Equals("P")
-             && model.MasaAtSunrise.Name.Equals(MasaConst.PUSHYA_STR)
-             && model.TithiAtSunrise.TithiNumber % 15 == TithiConst.EKADASHI))
-            {
-                message += " Putrada Ekadashi ";
-            }
-
-            if ((model.PanchangTithi.Paksha.Equals(PakshaConst.KRISHNA_PAKSHA)
-            && model.MonthEndOption.Equals("P")
-            && model.Masa.Name.Equals(MasaConst.MAGHA_STR)
-            && model.PanchangTithi.TithiNumber % 15 == TithiConst.EKADASHI)
-            ||
-                (model.TithiAtSunrise.Paksha.Equals(PakshaConst.KRISHNA_PAKSHA)
-            && model.MonthEndOption.Equals("P")
-            && model.MasaAtSunrise.Name.Equals(MasaConst.MAGHA_STR)
-            && model.TithiAtSunrise.TithiNumber % 15 == TithiConst.EKADASHI))
-            {
-                message += " Shatt Shila Ekadashi ";
-            }
-
-            if ((model.PanchangTithi.Paksha.Equals(PakshaConst.KRISHNA_PAKSHA)
-             && model.MonthEndOption.Equals("P")
-             && model.Masa.Name.Equals(MasaConst.MAGHA_STR)
-             && model.PanchangTithi.TithiNumber % 15 == TithiConst.CHATURTHI)
-             ||
-                 (model.TithiAtSunrise.Paksha.Equals(PakshaConst.KRISHNA_PAKSHA)
-             && model.MonthEndOption.Equals("P")
-             && model.MasaAtSunrise.Name.Equals(MasaConst.MAGHA_STR)
-             && model.TithiAtSunrise.TithiNumber % 15 == TithiConst.CHATURTHI))
-            {
-                message += " Lambodara Sankashti Chaturthi ";
-            }
-
-            if ((model.PanchangTithi.Paksha.Equals(PakshaConst.SHUKLA_PAKSHA)
-           && model.MonthEndOption.Equals("P")
-           && model.Masa.Name.Equals(MasaConst.MAGHA_STR)
-           && model.PanchangTithi.TithiNumber % 15 == TithiConst.PANCHAMI)
-           ||
-               (model.TithiAtSunrise.Paksha.Equals(PakshaConst.SHUKLA_PAKSHA)
-           && model.MonthEndOption.Equals("P")
-           && model.MasaAtSunrise.Name.Equals(MasaConst.MAGHA_STR)
-           && model.TithiAtSunrise.TithiNumber % 15 == TithiConst.PANCHAMI))
-            {
-                message += " Vasant Panchami ";
-            }
-            if ((model.PanchangTithi.Paksha.Equals(PakshaConst.SHUKLA_PAKSHA)
-           && model.MonthEndOption.Equals("P")
-           && model.Masa.Name.Equals(MasaConst.MAGHA_STR)
-           && model.PanchangTithi.TithiNumber % 15 == TithiConst.EKADASHI)
-           ||
-               (model.TithiAtSunrise.Paksha.Equals(PakshaConst.SHUKLA_PAKSHA)
-           && model.MonthEndOption.Equals("P")
-           && model.MasaAtSunrise.Name.Equals(MasaConst.MAGHA_STR)
-           && model.TithiAtSunrise.TithiNumber % 15 == TithiConst.EKADASHI))
-            {
-                message += " Jayaa Ekadashi";
-            }
-            if ((model.PanchangTithi.Paksha.Equals(PakshaConst.SHUKLA_PAKSHA)
-         && model.MonthEndOption.Equals("P")
-         && model.Masa.Name.Equals(MasaConst.MAGHA_STR)
-         && model.PanchangTithi.TithiNumber % 15 == TithiConst.TRAYODASI)
-         ||
-             (model.TithiAtSunrise.Paksha.Equals(PakshaConst.SHUKLA_PAKSHA)
-         && model.MonthEndOption.Equals("P")
-         && model.MasaAtSunrise.Name.Equals(MasaConst.MAGHA_STR)
-         && model.TithiAtSunrise.TithiNumber % 15 == TithiConst.TRAYODASI))
-            {
-                message += " Vishwakarma Jayanti ";
-            }
-            if ((model.PanchangTithi.Paksha.Equals(PakshaConst.KRISHNA_PAKSHA)
-          && model.MonthEndOption.Equals("P")
-          && model.Masa.Name.Equals(MasaConst.PHALGUN_STR)
-          && model.PanchangTithi.TithiNumber % 15 == TithiConst.CHATURTHI)
-          ||
-              (model.TithiAtSunrise.Paksha.Equals(PakshaConst.KRISHNA_PAKSHA)
-          && model.MonthEndOption.Equals("P")
-          && model.MasaAtSunrise.Name.Equals(MasaConst.PHALGUN_STR)
-          && model.TithiAtSunrise.TithiNumber % 15 == TithiConst.CHATURTHI))
-            {
-                message += " Dwijapriya Sankashti Chaturthi ";
-            }
-            if ((model.PanchangTithi.Paksha.Equals(PakshaConst.KRISHNA_PAKSHA)
-           && model.MonthEndOption.Equals("P")
-           && model.Masa.Name.Equals(MasaConst.PHALGUN_STR)
-           && model.PanchangTithi.TithiNumber % 15 == TithiConst.EKADASHI)
-           ||
-               (model.TithiAtSunrise.Paksha.Equals(PakshaConst.KRISHNA_PAKSHA)
-           && model.MonthEndOption.Equals("P")
-           && model.MasaAtSunrise.Name.Equals(MasaConst.PHALGUN_STR)
-           && model.TithiAtSunrise.TithiNumber % 15 == TithiConst.EKADASHI))
-            {
-                message += " Vijayaa Ekadashi ";
-            }
-            if ((model.PanchangTithi.Paksha.Equals(PakshaConst.KRISHNA_PAKSHA)
-           && model.MonthEndOption.Equals("P")
-           && model.Masa.Name.Equals(MasaConst.PHALGUN_STR)
-           && model.PanchangTithi.TithiNumber % 15 == TithiConst.CHATURDASHI)
-           ||
-               (model.TithiAtSunrise.Paksha.Equals(PakshaConst.KRISHNA_PAKSHA)
-           && model.MonthEndOption.Equals("P")
-           && model.MasaAtSunrise.Name.Equals(MasaConst.PHALGUN_STR)
-           && model.TithiAtSunrise.TithiNumber % 15 == TithiConst.CHATURDASHI))
-            {
-                message += " Maha Shivratri ";
-            }
-            if ((model.PanchangTithi.Paksha.Equals(PakshaConst.SHUKLA_PAKSHA)
-          && model.MonthEndOption.Equals("P")
-          && model.Masa.Name.Equals(MasaConst.PHALGUN_STR)
-          && model.PanchangTithi.TithiNumber % 15 == TithiConst.EKADASHI)
-          ||
-              (model.TithiAtSunrise.Paksha.Equals(PakshaConst.SHUKLA_PAKSHA)
-          && model.MonthEndOption.Equals("P")
-          && model.MasaAtSunrise.Name.Equals(MasaConst.PHALGUN_STR)
-          && model.TithiAtSunrise.TithiNumber % 15 == TithiConst.EKADASHI))
-            {
-                message += " Aamalki Ekadashi ";
-            }
-
-            if ((model.PanchangTithi.Paksha.Equals(PakshaConst.SHUKLA_PAKSHA)
-          && model.MonthEndOption.Equals("P")
-          && model.Masa.Name.Equals(MasaConst.PHALGUN_STR)
-          && model.PanchangTithi.TithiNumber % 15 == TithiConst.CHATURDASHI)
-          ||
-              (model.TithiAtSunrise.Paksha.Equals(PakshaConst.SHUKLA_PAKSHA)
-          && model.MonthEndOption.Equals("P")
-          && model.MasaAtSunrise.Name.Equals(MasaConst.PHALGUN_STR)
-          && model.TithiAtSunrise.TithiNumber % 15 == TithiConst.CHATURDASHI))
-            {
-                message += " Holika Dahan ";
-            }
-
-            if ((model.PanchangTithi.Paksha.Equals(PakshaConst.SHUKLA_PAKSHA)
+                if ((model.PanchangTithi.Paksha.Equals(PakshaConst.KRISHNA_PAKSHA)
+               && model.MonthEndOption.Equals("P")
+               && model.Masa.Name.Equals(MasaConst.PHALGUN_STR)
+               && model.PanchangTithi.TithiNumber % 15 == TithiConst.CHATURDASHI)
+               ||
+                   (model.TithiAtSunrise.Paksha.Equals(PakshaConst.KRISHNA_PAKSHA)
+               && model.MonthEndOption.Equals("P")
+               && model.MasaAtSunrise.Name.Equals(MasaConst.PHALGUN_STR)
+               && model.TithiAtSunrise.TithiNumber % 15 == TithiConst.CHATURDASHI))
+                {
+                    message += " Maha Shivratri ";
+                }
+                if ((model.PanchangTithi.Paksha.Equals(PakshaConst.SHUKLA_PAKSHA)
               && model.MonthEndOption.Equals("P")
               && model.Masa.Name.Equals(MasaConst.PHALGUN_STR)
-              && model.PanchangTithi.TithiNumber == TithiConst.POORNIMA)
+              && model.PanchangTithi.TithiNumber % 15 == TithiConst.EKADASHI)
               ||
                   (model.TithiAtSunrise.Paksha.Equals(PakshaConst.SHUKLA_PAKSHA)
               && model.MonthEndOption.Equals("P")
               && model.MasaAtSunrise.Name.Equals(MasaConst.PHALGUN_STR)
-              && model.TithiAtSunrise.TithiNumber == TithiConst.POORNIMA))
-            {
-                message += " Holi ";
-            }
+              && model.TithiAtSunrise.TithiNumber % 15 == TithiConst.EKADASHI))
+                {
+                    message += " Aamalki Ekadashi ";
+                }
 
-            if ((model.PanchangTithi.TithiNumber == TithiConst.AMAVASYA
-               && model.VaraLabelStr.Equals(VaraConst.SOMWAAR_STR))
-               ||
-               ((model.TithiAtSunrise.TithiNumber == TithiConst.AMAVASYA
-               && model.VaraLabelStr.Equals(VaraConst.SOMWAAR_STR))))
-            {
-                message += " Somwati Amavasya  ";
-            }
-            if ((model.PanchangTithi.TithiNumber  == TithiConst.AMAVASYA
-               && model.MonthEndOption.Equals("P")
-               && model.Masa.Name.Equals(MasaConst.SHRAVAN_STR)
-               && model.PanchangTithi.Paksha.Equals(PakshaConst.KRISHNA_PAKSHA))
-               ||
-                   (model.TithiAtSunrise.TithiNumber == TithiConst.AMAVASYA
-               && model.MonthEndOption.Equals("P")
-               && model.Masa.Name.Equals(MasaConst.SHRAVAN_STR)
-               && model.TithiAtSunrise.Paksha.Equals(PakshaConst.KRISHNA_PAKSHA)))
-            {
-                message += " Hariyali Amavasya ";
-            }
-            if ((model.PanchangTithi.TithiNumber % 15 == TithiConst.TRITIYA
-                && model.MonthEndOption.Equals("P")
-                && model.Masa.Name.Equals(MasaConst.SHRAVAN_STR)
-                && model.PanchangTithi.Paksha.Equals(PakshaConst.SHUKLA_PAKSHA))
-                ||
-                    (model.TithiAtSunrise.TithiNumber % 15 == TithiConst.TRITIYA
-                && model.MonthEndOption.Equals("P")
-                && model.Masa.Name.Equals(MasaConst.SHRAVAN_STR)
-                && model.TithiAtSunrise.Paksha.Equals(PakshaConst.SHUKLA_PAKSHA)))
-            {
-                message += " Hariyali Teej ";
-            }
-            if ( (model.PanchangTithi.TithiNumber%15 == TithiConst.PANCHAMI
-                && model.MonthEndOption.Equals("P")
-                && model.Masa.Name.Equals(MasaConst.SHRAVAN_STR)
-                && model.PanchangTithi.Paksha.Equals(PakshaConst.SHUKLA_PAKSHA))
-                ||
-                    (model.TithiAtSunrise.TithiNumber % 15 == TithiConst.PANCHAMI
-                && model.MonthEndOption.Equals("P")
-                && model.Masa.Name.Equals(MasaConst.SHRAVAN_STR)
-                && model.TithiAtSunrise.Paksha.Equals(PakshaConst.SHUKLA_PAKSHA)))
-            {
-                message += " Naag Panchami  ";
-            }
-            if ((model.PanchangTithi.TithiNumber == TithiConst.POORNIMA
-                && model.MonthEndOption.Equals("P")
-                && model.Masa.Name.Equals(MasaConst.SHRAVAN_STR)
-                && model.PanchangTithi.Paksha.Equals(PakshaConst.SHUKLA_PAKSHA))
-                ||
-                    (model.TithiAtSunrise.TithiNumber == TithiConst.POORNIMA
-                && model.MonthEndOption.Equals("P")
-                && model.Masa.Name.Equals(MasaConst.SHRAVAN_STR)
-                && model.TithiAtSunrise.Paksha.Equals(PakshaConst.SHUKLA_PAKSHA)))
-            {   
-                message += " Raksha Bandhan  ";
-            }
-            if ((model.PanchangTithi.TithiNumber % 15 == TithiConst.ASHTAMI
-                && model.MonthEndOption.Equals("P")
-                && model.Masa.Name.Equals(MasaConst.BADHRPAD_STR)
-                && model.PanchangTithi.Paksha.Equals(PakshaConst.KRISHNA_PAKSHA))
-                ||
-                     (model.TithiAtSunrise.TithiNumber % 15 == TithiConst.ASHTAMI
-                && model.MonthEndOption.Equals("P")
-                && model.Masa.Name.Equals(MasaConst.BADHRPAD_STR)
-                && model.TithiAtSunrise.Paksha.Equals(PakshaConst.KRISHNA_PAKSHA)))
+                if ((model.PanchangTithi.Paksha.Equals(PakshaConst.SHUKLA_PAKSHA)
+              && model.MonthEndOption.Equals("P")
+              && model.Masa.Name.Equals(MasaConst.PHALGUN_STR)
+              && model.PanchangTithi.TithiNumber % 15 == TithiConst.CHATURDASHI)
+              ||
+                  (model.TithiAtSunrise.Paksha.Equals(PakshaConst.SHUKLA_PAKSHA)
+              && model.MonthEndOption.Equals("P")
+              && model.MasaAtSunrise.Name.Equals(MasaConst.PHALGUN_STR)
+              && model.TithiAtSunrise.TithiNumber % 15 == TithiConst.CHATURDASHI))
+                {
+                    message += " Holika Dahan ";
+                }
 
-            {
-                message += " Krishna Janmaashtami ";
+                if ((model.PanchangTithi.Paksha.Equals(PakshaConst.SHUKLA_PAKSHA)
+                  && model.MonthEndOption.Equals("P")
+                  && model.Masa.Name.Equals(MasaConst.PHALGUN_STR)
+                  && model.PanchangTithi.TithiNumber == TithiConst.POORNIMA)
+                  ||
+                      (model.TithiAtSunrise.Paksha.Equals(PakshaConst.SHUKLA_PAKSHA)
+                  && model.MonthEndOption.Equals("P")
+                  && model.MasaAtSunrise.Name.Equals(MasaConst.PHALGUN_STR)
+                  && model.TithiAtSunrise.TithiNumber == TithiConst.POORNIMA))
+                {
+                    message += " Holi ";
+                }
+
+                if ((model.PanchangTithi.TithiNumber == TithiConst.AMAVASYA
+                   && model.VaraLabelStr.Equals(VaraConst.SOMWAAR_STR))
+                   ||
+                   ((model.TithiAtSunrise.TithiNumber == TithiConst.AMAVASYA
+                   && model.VaraLabelStr.Equals(VaraConst.SOMWAAR_STR))))
+                {
+                    message += " Somwati Amavasya  ";
+                }
+                if ((model.PanchangTithi.TithiNumber == TithiConst.AMAVASYA
+                   && model.MonthEndOption.Equals("P")
+                   && model.Masa.Name.Equals(MasaConst.SHRAVAN_STR)
+                   && model.PanchangTithi.Paksha.Equals(PakshaConst.KRISHNA_PAKSHA))
+                   ||
+                       (model.TithiAtSunrise.TithiNumber == TithiConst.AMAVASYA
+                   && model.MonthEndOption.Equals("P")
+                   && model.Masa.Name.Equals(MasaConst.SHRAVAN_STR)
+                   && model.TithiAtSunrise.Paksha.Equals(PakshaConst.KRISHNA_PAKSHA)))
+                {
+                    message += " Hariyali Amavasya ";
+                }
+                if ((model.PanchangTithi.TithiNumber % 15 == TithiConst.TRITIYA
+                    && model.MonthEndOption.Equals("P")
+                    && model.Masa.Name.Equals(MasaConst.SHRAVAN_STR)
+                    && model.PanchangTithi.Paksha.Equals(PakshaConst.SHUKLA_PAKSHA))
+                    ||
+                        (model.TithiAtSunrise.TithiNumber % 15 == TithiConst.TRITIYA
+                    && model.MonthEndOption.Equals("P")
+                    && model.Masa.Name.Equals(MasaConst.SHRAVAN_STR)
+                    && model.TithiAtSunrise.Paksha.Equals(PakshaConst.SHUKLA_PAKSHA)))
+                {
+                    message += " Hariyali Teej ";
+                }
+                if ((model.PanchangTithi.TithiNumber % 15 == TithiConst.PANCHAMI
+                    && model.MonthEndOption.Equals("P")
+                    && model.Masa.Name.Equals(MasaConst.SHRAVAN_STR)
+                    && model.PanchangTithi.Paksha.Equals(PakshaConst.SHUKLA_PAKSHA))
+                    ||
+                        (model.TithiAtSunrise.TithiNumber % 15 == TithiConst.PANCHAMI
+                    && model.MonthEndOption.Equals("P")
+                    && model.Masa.Name.Equals(MasaConst.SHRAVAN_STR)
+                    && model.TithiAtSunrise.Paksha.Equals(PakshaConst.SHUKLA_PAKSHA)))
+                {
+                    message += " Naag Panchami  ";
+                }
+                if ((model.PanchangTithi.TithiNumber == TithiConst.POORNIMA
+                    && model.MonthEndOption.Equals("P")
+                    && model.Masa.Name.Equals(MasaConst.SHRAVAN_STR)
+                    && model.PanchangTithi.Paksha.Equals(PakshaConst.SHUKLA_PAKSHA))
+                    ||
+                        (model.TithiAtSunrise.TithiNumber == TithiConst.POORNIMA
+                    && model.MonthEndOption.Equals("P")
+                    && model.Masa.Name.Equals(MasaConst.SHRAVAN_STR)
+                    && model.TithiAtSunrise.Paksha.Equals(PakshaConst.SHUKLA_PAKSHA)))
+                {
+                    message += " Raksha Bandhan  ";
+                }
+                if ((model.PanchangTithi.TithiNumber % 15 == TithiConst.ASHTAMI
+                    && model.MonthEndOption.Equals("P")
+                    && model.Masa.Name.Equals(MasaConst.BADHRPAD_STR)
+                    && model.PanchangTithi.Paksha.Equals(PakshaConst.KRISHNA_PAKSHA))
+                    ||
+                         (model.TithiAtSunrise.TithiNumber % 15 == TithiConst.ASHTAMI
+                    && model.MonthEndOption.Equals("P")
+                    && model.Masa.Name.Equals(MasaConst.BADHRPAD_STR)
+                    && model.TithiAtSunrise.Paksha.Equals(PakshaConst.KRISHNA_PAKSHA)))
+
+                {
+                    message += " Krishna Janmaashtami ";
+                }
             }
             
             model.ImportanceLabelStr = message;
