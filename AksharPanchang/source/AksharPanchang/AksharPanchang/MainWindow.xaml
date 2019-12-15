@@ -19,6 +19,7 @@
                 <MenuItem Header="Next Poornima" Click="Poornima_Click" />
                 <MenuItem Header="Next Amavasya" Click="Amavasya_Click" />
                 <MenuItem Header="Next Surya Sankranti" Click="Sankranti_Click" />
+                <MenuItem Header="Next Panchak" Click="Panchak_Click" />
                 <Separator />
                 <MenuItem Header="Show Muhurta" Click="Muhurta_Click" />
             </MenuItem>

@@ -768,7 +768,63 @@ namespace AksharPanchang
             string sankrantiStr = DateTimeUtils.ConvertToTz(DateTimeUtils.JDNToDateTime(nextJDN), "UTC", model.TimeZone.Id).ToString("HH:mm:ss  dddd, dd MMMM yyy");
             MessageBox.Show("Next Sankranti (Sun moving to "+RaashiConst.getRaashiAsStr(nextSunSign.Number)+ ") is at \n\n" + sankrantiStr);
         }
-		/// Krishna – Dark-Complexioned Lord
+
+        //- Madhav
+        private void Panchak_Click(object sender, RoutedEventArgs e)
+        {
+            DateTime utcDate = DateTimeUtils.ConvertToTz(model.DateTime, propertiesManipulator.get(ApplicationManager.Instance.TIMEZONE_ID), "UTC");
+            Raashi moonSign = Raashi.getRaashi(DateTimeUtils.DateTimeToJDN(utcDate), PlanetConst.SE_MOON);
+            Raashi nextMoonSign;
+            double nextJDN;
+            nextMoonSign = new Raashi(RaashiConst.KUMBH);
+            do
+            {
+                utcDate = utcDate.AddHours(1);
+                moonSign = Raashi.getRaashi(DateTimeUtils.DateTimeToJDN(utcDate), PlanetConst.SE_MOON);
+            } while (moonSign.Number != nextMoonSign.Number);
+            utcDate = utcDate.AddHours(-1);
+            do
+            {
+                utcDate = utcDate.AddMinutes(1);
+                moonSign = Raashi.getRaashi(DateTimeUtils.DateTimeToJDN(utcDate), PlanetConst.SE_MOON);
+            } while (moonSign.Number != nextMoonSign.Number);
+            utcDate = utcDate.AddMinutes(-1);
+            do
+            {
+                utcDate = utcDate.AddSeconds(1);
+                moonSign = Raashi.getRaashi(DateTimeUtils.DateTimeToJDN(utcDate), PlanetConst.SE_MOON);
+            } while (moonSign.Number != nextMoonSign.Number);
+            nextJDN = DateTimeUtils.DateTimeToJDN(utcDate);
+            string moonKumbh = DateTimeUtils.ConvertToTz(DateTimeUtils.JDNToDateTime(nextJDN), "UTC", model.TimeZone.Id).ToString("HH:mm:ss  dddd, dd MMMM yyy");
+
+            nextMoonSign = new Raashi(RaashiConst.MESHA);
+            do
+            {
+                utcDate = utcDate.AddHours(1);
+                moonSign = Raashi.getRaashi(DateTimeUtils.DateTimeToJDN(utcDate), PlanetConst.SE_MOON);
+            } while (moonSign.Number != nextMoonSign.Number);
+            utcDate = utcDate.AddHours(-1);
+            do
+            {
+                utcDate = utcDate.AddMinutes(1);
+                moonSign = Raashi.getRaashi(DateTimeUtils.DateTimeToJDN(utcDate), PlanetConst.SE_MOON);
+            } while (moonSign.Number != nextMoonSign.Number);
+            utcDate = utcDate.AddMinutes(-1);
+            do
+            {
+                utcDate = utcDate.AddSeconds(1);
+                moonSign = Raashi.getRaashi(DateTimeUtils.DateTimeToJDN(utcDate), PlanetConst.SE_MOON);
+            } while (moonSign.Number != nextMoonSign.Number);
+            utcDate = utcDate.AddSeconds(-1);
+            double nextJDN2 = DateTimeUtils.DateTimeToJDN(utcDate);
+            string moonMeenLast = DateTimeUtils.ConvertToTz(DateTimeUtils.JDNToDateTime(nextJDN2), "UTC", model.TimeZone.Id).ToString("HH:mm:ss  dddd, dd MMMM yyy");
+            MessageBox.Show("Next Panchak " +
+                        "Moon moving into " + RaashiConst.KUMBH_STR +" , "+ RaashiConst.MEEN_STR
+                        + "\n\n from " + moonKumbh
+                        + "\n\n upto " + moonMeenLast
+                        + "\n\n After this moon moving into " + RaashiConst.MESHA_STR);
+            }
+        /// Krishna – Dark-Complexioned Lord
         private void ResetToNow_Click(object sender, RoutedEventArgs e)
         {
             DateTime now = DateTime.Now;
